@@ -1,3 +1,5 @@
+![Metrics](https://metrics.lecoq.io/funkpopo?template=classic&base.header=0&introduction=1&stars=1&introduction.title=true&stars.limit=4&config.timezone=Asia%2FShanghai)
+
 [![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=funkpopo&show_icons=true&theme=tokyonight)](https://github.com/anuraghazra/github-readme-stats)
 
 
