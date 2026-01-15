@@ -56,12 +56,6 @@
 
 </div>
 
-<div align="center">
-
-[![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=funkpopo&theme=tokyonight&hide_border=true)](https://git.io/streak-stats)
-
-</div>
-
 <!-- 贡献图 -->
 <div align="center">
 
