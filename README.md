@@ -12,7 +12,7 @@
 
 ## 🚀 About Me
 
-- 🔭 I'm currently working on **[SimpleShell](https://github.com/funkpopo/simpleshell) , [gemini-business2api](https://github.com/Dreamy-rain/gemini-business2api)** and [WriteBot](https://github.com/funkpopo/writebot)
+- 🔭 I'm currently working on **[SimpleShell](https://github.com/funkpopo/simpleshell) , [gemini-business2api](https://github.com/Dreamy-rain/gemini-business2api)** , **[new-api](https://github.com/QuantumNous/new-api)** and [WriteBot](https://github.com/funkpopo/writebot)
 - 🌱 I'm currently learning **NodeJS**
 
 ---
