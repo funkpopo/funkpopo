@@ -12,7 +12,7 @@
 
 ## 🚀 About Me
 
-- 🔭 I'm currently working on **[SimpleShell](https://github.com/funkpopo/simpleshell)** , **[new-api](https://github.com/QuantumNous/new-api)** , **[WriteBot](https://github.com/funkpopo/writebot)** and **[Lvllm](https://github.com/guqiong96/Lvllm)**.
+- 🔭 I'm currently working on **[Anna](https://github.com/funkpopo/anna)** , **[SimpleShell](https://github.com/funkpopo/simpleshell)** , **[new-api](https://github.com/QuantumNous/new-api)** , **[WriteBot](https://github.com/funkpopo/writebot)** and **[Lvllm](https://github.com/guqiong96/Lvllm)**.
 - 🌱 I'm currently learning **NodeJS** \ **AI Infra** \ **Transformers**
 
 ---
