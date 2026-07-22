@@ -62,9 +62,6 @@ Building tools at the intersection of **ops**, **desktop apps**, and **local AI*
 
 <div align="center">
 
-<img height="160" src="https://github-readme-stats.vercel.app/api?username=funkpopo&show_icons=true&include_all_commits=true&count_private=true&hide_border=true&bg_color=00000000&title_color=8b949e&text_color=c9d1d9&icon_color=6e7681&ring_color=6e7681" alt="GitHub stats" />
-<img height="160" src="https://github-readme-stats.vercel.app/api/top-langs/?username=funkpopo&layout=compact&langs_count=8&hide_border=true&bg_color=00000000&title_color=8b949e&text_color=c9d1d9" alt="Top languages" />
-
 <br />
 
 <img width="100%" src="https://github-readme-activity-graph.vercel.app/graph?username=funkpopo&bg_color=00000000&color=8b949e&line=6e7681&point=c9d1d9&area=true&hide_border=true&hide_title=true" alt="Contribution graph" />
