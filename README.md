@@ -6,13 +6,13 @@
 
 **Ops · Kubernetes · Network Security**
 
-Kunming, Yunnan · [hireable](mailto:s767609509@gmail.com)
+Kunming, Yunnan · [hireable](mailto:funkpopoisme@gmail.com)
 
 <br />
 
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/funkpopo)
-[![X](https://img.shields.io/badge/X-000000?style=flat-square&logo=x&logoColor=white)](https://x.com/Eryx_R3D)
-[![Email](https://img.shields.io/badge/Email-6B7280?style=flat-square&logo=gmail&logoColor=white)](mailto:s767609509@gmail.com)
+[![X](https://img.shields.io/badge/X-000000?style=flat-square&logo=x&logoColor=white)](https://x.com/funkpopo)
+[![Email](https://img.shields.io/badge/Email-6B7280?style=flat-square&logo=gmail&logoColor=white)](mailto:funkpopoisme@gmail.com)
 
 </div>
 
@@ -20,11 +20,7 @@ Kunming, Yunnan · [hireable](mailto:s767609509@gmail.com)
 
 ### About
 
-Operation engineer working on infrastructure, Kubernetes, and security research.  
-Building tools at the intersection of **ops**, **desktop apps**, and **local AI**.
-
-- Currently working on **[SimpleShell](https://github.com/funkpopo/simpleshell)**
-- Exploring local LLM tooling and AI-assisted workflows
+Operation engineer working on infrastructure, Kubernetes, and security research.
 
 ---
 
@@ -35,6 +31,7 @@ Building tools at the intersection of **ops**, **desktop apps**, and **local AI*
 | [**writebot**](https://github.com/funkpopo/writebot) | TypeScript | Word AI writing add-in with custom API support |
 | [**Anna**](https://github.com/funkpopo/Anna) | Python | Run Qwen / Gemma on Intel Arc GPUs |
 | [**simpleshell**](https://github.com/funkpopo/simpleshell) | Electron | Lightweight terminal built with Node.js |
+| [**grok-build-vscode**](https://github.com/phuryn/grok-build-vscode) | Did some simple work | Grok build extension/desktop app |
 
 ---
 
@@ -42,7 +39,7 @@ Building tools at the intersection of **ops**, **desktop apps**, and **local AI*
 
 <div align="center">
 
-<img src="https://skillicons.dev/icons?i=js,ts,python,c,cpp,react,vue,nodejs,electron,postgres,redis,docker,kubernetes,linux,aws,nginx,git,prometheus,grafana&perline=10" alt="tech stack" />
+<img src="https://skillicons.dev/icons?i=js,ts,python,cpp,react,nodejs,electron,rust,postgres,redis,docker,kubernetes,linux,aws,nginx,git&perline=10" alt="tech stack" />
 
 </div>
 
@@ -55,18 +52,6 @@ Building tools at the intersection of **ops**, **desktop apps**, and **local AI*
   <img src="https://img.shields.io/badge/Hugging_Face-2F3337?style=flat-square&logo=huggingface&logoColor=white" alt="Hugging Face" />
   <img src="https://img.shields.io/badge/n8n-2F3337?style=flat-square&logo=n8n&logoColor=white" alt="n8n" />
 </p>
-
----
-
-### Activity
-
-<div align="center">
-
-<br />
-
-<img width="100%" src="https://github-readme-activity-graph.vercel.app/graph?username=funkpopo&bg_color=00000000&color=8b949e&line=6e7681&point=c9d1d9&area=true&hide_border=true&hide_title=true" alt="Contribution graph" />
-
-</div>
 
 ---
 
