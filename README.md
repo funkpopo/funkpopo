@@ -29,7 +29,7 @@ Operation engineer working on infrastructure, Kubernetes, and security research.
 | Project | Stack | Description |
 |:--------|:------|:------------|
 | [**writebot**](https://github.com/funkpopo/writebot) | TypeScript | Word AI writing add-in with custom API support |
-| [**Anna**](https://github.com/funkpopo/Anna) | Python | Run Qwen / Gemma on Intel Arc GPUs |
+| [**cc-switch**](https://github.com/farion1231/cc-switch)
 | [**simpleshell**](https://github.com/funkpopo/simpleshell) | Electron | Lightweight terminal built with Node.js |
 | [**grok-build-vscode**](https://github.com/phuryn/grok-build-vscode) | Did some simple work | Grok build extension/desktop app |
 
