@@ -20,18 +20,25 @@ Kunming, Yunnan · [hireable](mailto:funkpopoisme@gmail.com)
 
 ### About
 
-Operation engineer working on infrastructure, Kubernetes, and security research.
+Operations engineer based in Kunming, working on infrastructure and Kubernetes in my daily job, and exploring network security and AI tooling in my spare time. Still learning — most of my projects are small experiments rather than production systems.
 
 ---
 
-### Featured
+### Projects
+
+A few things I've built or been tinkering with:
 
 | Project | Stack | Description |
 |:--------|:------|:------------|
-| [**writebot**](https://github.com/funkpopo/writebot) | TypeScript | Word AI writing add-in with custom API support |
-| [**cc-switch**](https://github.com/farion1231/cc-switch)
-| [**simpleshell**](https://github.com/funkpopo/simpleshell) | Electron | Lightweight terminal built with Node.js |
-| [**grok-build-vscode**](https://github.com/phuryn/grok-build-vscode) | Did some simple work | Grok build extension/desktop app |
+| [**writebot**](https://github.com/funkpopo/writebot) | TypeScript | A Microsoft Word AI writing add-in with configurable API support |
+| [**Anna**](https://github.com/funkpopo/Anna) | Python | Experiments running Qwen / Gemma models locally on Intel Arc GPUs |
+| [**ResNet-Packed-Malware-Detection**](https://github.com/funkpopo/ResNet-Packed-Malware-Detection) | Python | A study project classifying packed malware using image recognition |
+| [**simpleshell**](https://github.com/funkpopo/simpleshell) | Electron · JavaScript | A simple terminal built with Electron and Node.js |
+| [**note-by**](https://github.com/funkpopo/note-by) | TypeScript | A small note-taking app built with Electron and React |
+| [**cc-switch**](https://github.com/farion1231/cc-switch) | Rust | A cross-platform desktop assistant for Claude Code and other CLI coding tools (fork, took part in some work) |
+| [**grok-build-vscode**](https://github.com/phuryn/grok-build-vscode) | TypeScript | A GUI for the Grok Build CLI in VS Code and Cursor (fork, took part in some work) |
+
+I also fork and read through open-source projects to learn how they work.
 
 ---
 
@@ -39,7 +46,7 @@ Operation engineer working on infrastructure, Kubernetes, and security research.
 
 <div align="center">
 
-<img src="https://skillicons.dev/icons?i=js,ts,python,cpp,react,nodejs,electron,rust,postgres,redis,docker,kubernetes,linux,aws,nginx,git&perline=10" alt="tech stack" />
+<img src="https://skillicons.dev/icons?i=js,ts,python,rust,react,nodejs,electron,docker,kubernetes,linux,nginx,git&perline=10" alt="tech stack" />
 
 </div>
 
@@ -57,6 +64,6 @@ Operation engineer working on infrastructure, Kubernetes, and security research.
 
 <div align="center">
 
-<sub>Open to collaboration · Star a repo if something is useful</sub>
+<sub>Open to collaboration · Feedback and suggestions are always welcome</sub>
 
 </div>
