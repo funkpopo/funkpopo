@@ -20,7 +20,9 @@ Kunming, Yunnan · [hireable](mailto:funkpopoisme@gmail.com)
 
 ### About
 
-Operations engineer based in Kunming, working on infrastructure and Kubernetes in my daily job, and exploring network security and AI tooling in my spare time. Still learning — most of my projects are small experiments rather than production systems.
+Operations engineer based in Kunming, working on Ops, infrastructure and Kubernetes in my daily job, and exploring AI infra, network security, and AI tooling in my spare time. 
+
+Still learning.
 
 ---
 
@@ -34,7 +36,6 @@ A few things I've built or been tinkering with:
 | [**Anna**](https://github.com/funkpopo/Anna) | Python | Experiments running Qwen / Gemma models locally on Intel Arc GPUs |
 | [**ResNet-Packed-Malware-Detection**](https://github.com/funkpopo/ResNet-Packed-Malware-Detection) | Python | A study project classifying packed malware using image recognition |
 | [**simpleshell**](https://github.com/funkpopo/simpleshell) | Electron · JavaScript | A simple terminal built with Electron and Node.js |
-| [**note-by**](https://github.com/funkpopo/note-by) | TypeScript | A small note-taking app built with Electron and React |
 | [**cc-switch**](https://github.com/farion1231/cc-switch) | Rust | A cross-platform desktop assistant for Claude Code and other CLI coding tools (fork, took part in some work) |
 | [**grok-build-vscode**](https://github.com/phuryn/grok-build-vscode) | TypeScript | A GUI for the Grok Build CLI in VS Code and Cursor (fork, took part in some work) |
 
@@ -44,19 +45,23 @@ I also fork and read through open-source projects to learn how they work.
 
 ### Stack
 
+Languages and tools drawn from the projects above and the ones I participate in:
+
 <div align="center">
 
-<img src="https://skillicons.dev/icons?i=js,ts,python,rust,react,nodejs,electron,docker,kubernetes,linux,nginx,git&perline=10" alt="tech stack" />
+<img src="https://skillicons.dev/icons?i=ts,js,python,rust,go,react,nodejs,electron,docker,kubernetes,linux,nginx,git&perline=10" alt="tech stack" />
 
 </div>
 
 <br />
 
 <p align="center">
+  <img src="https://img.shields.io/badge/vLLM-2F3337?style=flat-square" alt="vLLM" />
+  <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white" alt="PyTorch" />
+  <img src="https://img.shields.io/badge/Hugging_Face-FFD21E?style=flat-square&logo=huggingface&logoColor=black" alt="Hugging Face" />
   <img src="https://img.shields.io/badge/Ansible-2F3337?style=flat-square&logo=ansible&logoColor=white" alt="Ansible" />
   <img src="https://img.shields.io/badge/OpenAI-2F3337?style=flat-square&logo=openai&logoColor=white" alt="OpenAI" />
   <img src="https://img.shields.io/badge/Claude-2F3337?style=flat-square&logo=anthropic&logoColor=white" alt="Claude" />
-  <img src="https://img.shields.io/badge/Hugging_Face-2F3337?style=flat-square&logo=huggingface&logoColor=white" alt="Hugging Face" />
   <img src="https://img.shields.io/badge/n8n-2F3337?style=flat-square&logo=n8n&logoColor=white" alt="n8n" />
 </p>
 
