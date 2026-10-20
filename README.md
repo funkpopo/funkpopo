@@ -22,6 +22,8 @@ Kunming, Yunnan · [hireable](mailto:funkpopoisme@gmail.com)
 
 Operations engineer based in Kunming, working on Ops, infrastructure and Kubernetes in my daily job, and exploring AI infra, network security, and AI tooling in my spare time. 
 
+Collaborator of [cc-switch](https://github.com/farion1231/cc-switch).
+
 Still learning.
 
 ---
