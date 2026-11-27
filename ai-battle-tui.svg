@@ -1,167 +1,346 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 380" width="960" height="380" role="img" aria-label="5-Way AI Icons TUI Battle">
+  <defs>
+    <clipPath id="arena-clip">
+      <rect width="960" height="380" rx="12" />
+    </clipPath>
+  </defs>
   <style><![CDATA[
     text {
       font-family: 'JetBrains Mono', 'Cascadia Code', 'Fira Code', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
       font-size: 9.8px;
       font-variant-ligatures: none;
     }
-    .fx {
+    .fx text {
       font-size: 16px;
       font-weight: 700;
       text-anchor: middle;
       dominant-baseline: central;
     }
     .fighter {
-      will-change: transform, filter;
+      will-change: transform, filter, opacity;
     }
 
-    /* Antigravity: top-left striker diving at Grok and DeepSeek */
-    #f-antigravity {
-      animation: move-ag 10s linear infinite;
-    }
-    @keyframes move-ag {
-      0%, 100% { transform: translate(175px, 105px); filter: brightness(1); }
-      16%      { transform: translate(330px, 125px); filter: brightness(1); }
-      22%      { transform: translate(405px, 145px) scale(1.06); filter: brightness(2.4); }
-      32%      { transform: translate(250px, 195px); filter: brightness(1); }
-      48%      { transform: translate(325px, 240px); filter: brightness(2.3); }
-      58%      { transform: translate(210px, 185px); filter: brightness(1); }
-      74%      { transform: translate(480px, 125px); filter: brightness(1); }
-      80%      { transform: translate(555px, 165px); filter: brightness(2.4); }
-      90%      { transform: translate(290px, 110px); filter: brightness(1); }
+    #f-antigravity { animation: move-antigravity 12s linear infinite; }
+    @keyframes move-antigravity {
+      0% { transform: translate(175px, 105px); filter: brightness(1.0); opacity: 1; }
+      12% { transform: translate(345px, 128px); filter: brightness(1.0); opacity: 1; }
+      18% { transform: translate(415px, 148px) scale(1.08); filter: brightness(2.8); opacity: 1; }
+      25% { transform: translate(250px, 195px); filter: brightness(1.0); opacity: 1; }
+      32% { transform: translate(340px, 240px) scale(1.08); filter: brightness(2.7); opacity: 1; }
+      40% { transform: translate(210px, 165px); filter: brightness(1.0); opacity: 1; }
+      45% { transform: translate(360px, 225px) scale(1.06); filter: brightness(2.6); opacity: 1; }
+      54% { transform: translate(220px, 120px); filter: brightness(1.0); opacity: 1; }
+      66% { transform: translate(520px, 145px); filter: brightness(1.0); opacity: 1; }
+      70% { transform: translate(585px, 165px) scale(1.08); filter: brightness(2.8); opacity: 1; }
+      78% { transform: translate(420px, 115px); filter: brightness(1.0); opacity: 1; }
+      92% { transform: translate(240px, 125px); filter: brightness(1.0); opacity: 1; }
+      100% { transform: translate(175px, 105px); filter: brightness(1.0); opacity: 1; }
     }
 
-    /* Grok Build: top-center interceptor clashing with Antigravity and Claude Code */
-    #f-grok {
-      animation: move-grok 10s linear infinite;
-    }
+    #f-grok { animation: move-grok 12s linear infinite; }
     @keyframes move-grok {
-      0%, 100% { transform: translate(480px, 95px); filter: brightness(1); }
-      16%      { transform: translate(450px, 135px); filter: brightness(1); }
-      22%      { transform: translate(435px, 145px) scale(1.06); filter: brightness(2.4); }
-      34%      { transform: translate(575px, 115px); filter: brightness(1); }
-      52%      { transform: translate(675px, 145px); filter: brightness(2.3); }
-      64%      { transform: translate(525px, 210px); filter: brightness(1); }
-      76%      { transform: translate(520px, 170px); filter: brightness(1); }
-      80%      { transform: translate(585px, 165px); filter: brightness(2.4); }
-      90%      { transform: translate(495px, 100px); filter: brightness(1); }
+      0% { transform: translate(480px, 92px); filter: brightness(1.0); opacity: 1; }
+      12% { transform: translate(455px, 132px); filter: brightness(1.0); opacity: 1; }
+      18% { transform: translate(435px, 148px) scale(1.08); filter: brightness(2.8); opacity: 1; }
+      28% { transform: translate(600px, 115px); filter: brightness(1.0); opacity: 1; }
+      38% { transform: translate(690px, 148px); filter: brightness(1.0); opacity: 1; }
+      44% { transform: translate(650px, 170px); filter: brightness(1.0); opacity: 1; }
+      58% { transform: translate(675px, 145px) scale(1.08); filter: brightness(2.8); opacity: 1; }
+      72% { transform: translate(740px, 165px); filter: brightness(1.0); opacity: 1; }
+      80% { transform: translate(685px, 180px) scale(1.1); filter: brightness(2.9); opacity: 1; }
+      82% { transform: translate(695px, 182px) scale(1.15); filter: brightness(3.0); opacity: 1; }
+      83% { transform: translate(702px, 184px); filter: brightness(2.0); opacity: 0; }
+      84% { transform: translate(706px, 185px); filter: brightness(2.0); opacity: 1; }
+      85% { transform: translate(710px, 185px) scale(0.8); filter: brightness(1.5); opacity: 0; }
+      89.5% { transform: translate(480px, 92px) scale(0.4); filter: brightness(2.2); opacity: 0; }
+      91% { transform: translate(480px, 92px) scale(1.1); filter: brightness(2.2); opacity: 1; }
+      94% { transform: translate(480px, 92px); filter: brightness(1.0); opacity: 1; }
+      100% { transform: translate(480px, 92px); filter: brightness(1.0); opacity: 1; }
     }
 
-    /* Claude Code: top-right brawler tangling with Grok and Codex */
-    #f-claudecode {
-      animation: move-cc 10s linear infinite;
-    }
-    @keyframes move-cc {
-      0%, 100% { transform: translate(785px, 105px); filter: brightness(1); }
-      20%      { transform: translate(735px, 185px); filter: brightness(1); }
-      36%      { transform: translate(685px, 225px); filter: brightness(2.4); }
-      48%      { transform: translate(720px, 150px); filter: brightness(1); }
-      52%      { transform: translate(705px, 145px) scale(1.06); filter: brightness(2.4); }
-      64%      { transform: translate(795px, 130px); filter: brightness(1); }
-      78%      { transform: translate(670px, 115px); filter: brightness(1); }
-      90%      { transform: translate(765px, 155px); filter: brightness(1); }
-    }
-
-    /* DeepSeek: bottom-left whale dashing against Antigravity and Codex */
-    #f-deepseek {
-      animation: move-ds 10s linear infinite;
-    }
-    @keyframes move-ds {
-      0%, 100% { transform: translate(295px, 275px); filter: brightness(1); }
-      20%      { transform: translate(410px, 270px); filter: brightness(1); }
-      36%      { transform: translate(470px, 255px); filter: brightness(2.4); }
-      46%      { transform: translate(355px, 245px); filter: brightness(1); }
-      48%      { transform: translate(355px, 240px) scale(1.06); filter: brightness(2.4); }
-      60%      { transform: translate(235px, 250px); filter: brightness(1); }
-      76%      { transform: translate(375px, 285px); filter: brightness(1); }
-      90%      { transform: translate(310px, 280px); filter: brightness(1); }
+    #f-claudecode { animation: move-claudecode 12s linear infinite; }
+    @keyframes move-claudecode {
+      0% { transform: translate(785px, 105px); filter: brightness(1.0); opacity: 1; }
+      16% { transform: translate(735px, 185px); filter: brightness(1.0); opacity: 1; }
+      26% { transform: translate(650px, 225px) scale(1.08); filter: brightness(2.7); opacity: 1; }
+      38% { transform: translate(760px, 150px); filter: brightness(1.0); opacity: 1; }
+      52% { transform: translate(700px, 145px); filter: brightness(1.0); opacity: 1; }
+      58% { transform: translate(695px, 145px) scale(1.08); filter: brightness(2.8); opacity: 1; }
+      68% { transform: translate(785px, 130px); filter: brightness(1.0); opacity: 1; }
+      78% { transform: translate(705px, 180px); filter: brightness(1.0); opacity: 1; }
+      82% { transform: translate(680px, 182px) scale(1.08); filter: brightness(2.7); opacity: 1; }
+      90% { transform: translate(795px, 120px); filter: brightness(1.0); opacity: 1; }
+      100% { transform: translate(785px, 105px); filter: brightness(1.0); opacity: 1; }
     }
 
-    /* Codex: bottom-right cloud flanker clashing with DeepSeek and Claude Code */
-    #f-codex {
-      animation: move-codex 10s linear infinite;
+    #f-deepseek { animation: move-deepseek 12s linear infinite; }
+    @keyframes move-deepseek {
+      0% { transform: translate(285px, 275px); filter: brightness(1.0); opacity: 1; }
+      16% { transform: translate(395px, 265px); filter: brightness(1.0); opacity: 1; }
+      26% { transform: translate(445px, 255px); filter: brightness(1.0); opacity: 1; }
+      32% { transform: translate(360px, 242px) scale(1.08); filter: brightness(2.7); opacity: 1; }
+      40% { transform: translate(390px, 240px); filter: brightness(1.0); opacity: 1; }
+      45% { transform: translate(378px, 232px) scale(1.14); filter: brightness(3.0); opacity: 1; }
+      46% { transform: translate(384px, 236px); filter: brightness(2.0); opacity: 0; }
+      47% { transform: translate(388px, 238px); filter: brightness(2.0); opacity: 1; }
+      48% { transform: translate(392px, 240px) scale(0.8); filter: brightness(1.5); opacity: 0; }
+      52.5% { transform: translate(220px, 275px) scale(0.4); filter: brightness(2.2); opacity: 0; }
+      54% { transform: translate(220px, 275px) scale(1.1); filter: brightness(2.2); opacity: 1; }
+      64% { transform: translate(365px, 260px); filter: brightness(1.0); opacity: 1; }
+      74% { transform: translate(480px, 265px) scale(1.08); filter: brightness(2.7); opacity: 1; }
+      88% { transform: translate(325px, 280px); filter: brightness(1.0); opacity: 1; }
+      100% { transform: translate(285px, 275px); filter: brightness(1.0); opacity: 1; }
     }
+
+    #f-codex { animation: move-codex 12s linear infinite; }
     @keyframes move-codex {
-      0%, 100% { transform: translate(665px, 275px); filter: brightness(1); }
-      20%      { transform: translate(560px, 260px); filter: brightness(1); }
-      36%      { transform: translate(500px, 255px) scale(1.06); filter: brightness(2.4); }
-      50%      { transform: translate(650px, 245px); filter: brightness(1); }
-      66%      { transform: translate(720px, 225px); filter: brightness(2.4); }
-      76%      { transform: translate(610px, 265px); filter: brightness(1); }
-      90%      { transform: translate(650px, 275px); filter: brightness(1); }
+      0% { transform: translate(675px, 275px); filter: brightness(1.0); opacity: 1; }
+      18% { transform: translate(630px, 245px); filter: brightness(1.0); opacity: 1; }
+      26% { transform: translate(632px, 228px) scale(1.08); filter: brightness(2.7); opacity: 1; }
+      38% { transform: translate(540px, 255px); filter: brightness(1.0); opacity: 1; }
+      52% { transform: translate(625px, 215px); filter: brightness(1.0); opacity: 1; }
+      66% { transform: translate(605px, 168px); filter: brightness(1.0); opacity: 1; }
+      70% { transform: translate(600px, 165px) scale(1.08); filter: brightness(2.8); opacity: 1; }
+      74% { transform: translate(502px, 262px) scale(1.08); filter: brightness(2.7); opacity: 1; }
+      86% { transform: translate(650px, 255px); filter: brightness(1.0); opacity: 1; }
+      94% { transform: translate(690px, 265px); filter: brightness(1.0); opacity: 1; }
+      100% { transform: translate(675px, 275px); filter: brightness(1.0); opacity: 1; }
     }
 
-    /* TUI ASCII Projectiles */
-    .bolt-1 { animation: bolt1 10s linear infinite; opacity: 0; }
-    @keyframes bolt1 {
-      0%, 6%   { opacity: 0; transform: translate(210px, 110px); }
-      8%       { opacity: 1; transform: translate(265px, 110px); }
-      14%      { opacity: 1; transform: translate(420px, 105px); }
-      16%, 100%{ opacity: 0; transform: translate(450px, 105px); }
+    #stage { animation: stage-shake 12s linear infinite; }
+    @keyframes stage-shake {
+      0%, 100% { transform: translate(0px, 0px); }
+      17.7% { transform: translate(0px, 0px); }
+      18% { transform: translate(-5px, 4px); }
+      18.4% { transform: translate(5px, -3px); }
+      18.8% { transform: translate(-2px, 2px); }
+      19.2% { transform: translate(0px, 0px); }
+      25.7% { transform: translate(0px, 0px); }
+      26% { transform: translate(-5px, 4px); }
+      26.4% { transform: translate(5px, -3px); }
+      26.8% { transform: translate(-2px, 2px); }
+      27.2% { transform: translate(0px, 0px); }
+      31.7% { transform: translate(0px, 0px); }
+      32% { transform: translate(-5px, 4px); }
+      32.4% { transform: translate(5px, -3px); }
+      32.8% { transform: translate(-2px, 2px); }
+      33.2% { transform: translate(0px, 0px); }
+      44.7% { transform: translate(0px, 0px); }
+      45% { transform: translate(-5px, 4px); }
+      45.4% { transform: translate(5px, -3px); }
+      45.8% { transform: translate(-2px, 2px); }
+      46.2% { transform: translate(0px, 0px); }
+      57.7% { transform: translate(0px, 0px); }
+      58% { transform: translate(-5px, 4px); }
+      58.4% { transform: translate(5px, -3px); }
+      58.8% { transform: translate(-2px, 2px); }
+      59.2% { transform: translate(0px, 0px); }
+      69.7% { transform: translate(0px, 0px); }
+      70% { transform: translate(-5px, 4px); }
+      70.4% { transform: translate(5px, -3px); }
+      70.8% { transform: translate(-2px, 2px); }
+      71.2% { transform: translate(0px, 0px); }
+      73.7% { transform: translate(0px, 0px); }
+      74% { transform: translate(-5px, 4px); }
+      74.4% { transform: translate(5px, -3px); }
+      74.8% { transform: translate(-2px, 2px); }
+      75.2% { transform: translate(0px, 0px); }
+      81.7% { transform: translate(0px, 0px); }
+      82% { transform: translate(-5px, 4px); }
+      82.4% { transform: translate(5px, -3px); }
+      82.8% { transform: translate(-2px, 2px); }
+      83.2% { transform: translate(0px, 0px); }
     }
 
-    .bolt-2 { animation: bolt2 10s linear infinite; opacity: 0; }
-    @keyframes bolt2 {
-      0%, 40%  { opacity: 0; transform: translate(745px, 130px); }
-      42%      { opacity: 1; transform: translate(650px, 155px); }
-      48%      { opacity: 1; transform: translate(500px, 185px); }
-      50%, 100%{ opacity: 0; transform: translate(470px, 195px); }
+    .bolt-1 { animation: bolt-1 12s linear infinite; opacity: 0; }
+    @keyframes bolt-1 {
+      0%, 3.5% { opacity: 0; transform: translate(200px, 108px) rotate(-1.8deg); }
+      4.5% { opacity: 1; transform: translate(200px, 108px) rotate(-1.8deg); }
+      10.5% { opacity: 1; transform: translate(450px, 100px) rotate(-1.8deg); }
+      11.5%, 100% { opacity: 0; transform: translate(450px, 100px) rotate(-1.8deg); }
+    }
+    .bolt-2 { animation: bolt-2 12s linear infinite; opacity: 0; }
+    @keyframes bolt-2 {
+      0%, 7.5% { opacity: 0; transform: translate(760px, 120px) rotate(-176.9deg); }
+      8.5% { opacity: 1; transform: translate(760px, 120px) rotate(-176.9deg); }
+      14.5% { opacity: 1; transform: translate(480px, 105px) rotate(-176.9deg); }
+      15.5%, 100% { opacity: 0; transform: translate(480px, 105px) rotate(-176.9deg); }
+    }
+    .bolt-3 { animation: bolt-3 12s linear infinite; opacity: 0; }
+    @keyframes bolt-3 {
+      0%, 13.5% { opacity: 0; transform: translate(300px, 270px) rotate(-3.6deg); }
+      14.5% { opacity: 1; transform: translate(300px, 270px) rotate(-3.6deg); }
+      20.5% { opacity: 1; transform: translate(620px, 250px) rotate(-3.6deg); }
+      21.5%, 100% { opacity: 0; transform: translate(620px, 250px) rotate(-3.6deg); }
+    }
+    .bolt-4 { animation: bolt-4 12s linear infinite; opacity: 0; }
+    @keyframes bolt-4 {
+      0%, 21.5% { opacity: 0; transform: translate(640px, 235px) rotate(179.0deg); }
+      22.5% { opacity: 1; transform: translate(640px, 235px) rotate(179.0deg); }
+      28.5% { opacity: 1; transform: translate(360px, 240px) rotate(179.0deg); }
+      29.5%, 100% { opacity: 0; transform: translate(360px, 240px) rotate(179.0deg); }
+    }
+    .bolt-5 { animation: bolt-5 12s linear infinite; opacity: 0; }
+    @keyframes bolt-5 {
+      0%, 28.5% { opacity: 0; transform: translate(595px, 118px) rotate(168.4deg); }
+      29.5% { opacity: 1; transform: translate(595px, 118px) rotate(168.4deg); }
+      35.5% { opacity: 1; transform: translate(270px, 185px) rotate(168.4deg); }
+      36.5%, 100% { opacity: 0; transform: translate(270px, 185px) rotate(168.4deg); }
+    }
+    .bolt-6 { animation: bolt-6 12s linear infinite; opacity: 0; }
+    @keyframes bolt-6 {
+      0%, 35.5% { opacity: 0; transform: translate(225px, 170px) rotate(22.8deg); }
+      36.5% { opacity: 1; transform: translate(225px, 170px) rotate(22.8deg); }
+      42.5% { opacity: 1; transform: translate(380px, 235px) rotate(22.8deg); }
+      43.5%, 100% { opacity: 0; transform: translate(380px, 235px) rotate(22.8deg); }
+    }
+    .bolt-7 { animation: bolt-7 12s linear infinite; opacity: 0; }
+    @keyframes bolt-7 {
+      0%, 53.5% { opacity: 0; transform: translate(240px, 270px) rotate(-9.2deg); }
+      54.5% { opacity: 1; transform: translate(240px, 270px) rotate(-9.2deg); }
+      60.5% { opacity: 1; transform: translate(610px, 210px) rotate(-9.2deg); }
+      61.5%, 100% { opacity: 0; transform: translate(610px, 210px) rotate(-9.2deg); }
+    }
+    .bolt-8 { animation: bolt-8 12s linear infinite; opacity: 0; }
+    @keyframes bolt-8 {
+      0%, 60.5% { opacity: 0; transform: translate(765px, 140px) rotate(178.8deg); }
+      61.5% { opacity: 1; transform: translate(765px, 140px) rotate(178.8deg); }
+      67.5% { opacity: 1; transform: translate(535px, 145px) rotate(178.8deg); }
+      68.5%, 100% { opacity: 0; transform: translate(535px, 145px) rotate(178.8deg); }
+    }
+    .bolt-9 { animation: bolt-9 12s linear infinite; opacity: 0; }
+    @keyframes bolt-9 {
+      0%, 65.5% { opacity: 0; transform: translate(725px, 165px) rotate(180.0deg); }
+      66.5% { opacity: 1; transform: translate(725px, 165px) rotate(180.0deg); }
+      72.5% { opacity: 1; transform: translate(595px, 165px) rotate(180.0deg); }
+      73.5%, 100% { opacity: 0; transform: translate(595px, 165px) rotate(180.0deg); }
+    }
+    .bolt-10 { animation: bolt-10 12s linear infinite; opacity: 0; }
+    @keyframes bolt-10 {
+      0%, 74.5% { opacity: 0; transform: translate(440px, 118px) rotate(14.3deg); }
+      75.5% { opacity: 1; transform: translate(440px, 118px) rotate(14.3deg); }
+      81.5% { opacity: 1; transform: translate(675px, 178px) rotate(14.3deg); }
+      82.5%, 100% { opacity: 0; transform: translate(675px, 178px) rotate(14.3deg); }
+    }
+    .bolt-11 { animation: bolt-11 12s linear infinite; opacity: 0; }
+    @keyframes bolt-11 {
+      0%, 83.5% { opacity: 0; transform: translate(635px, 250px) rotate(174.6deg); }
+      84.5% { opacity: 1; transform: translate(635px, 250px) rotate(174.6deg); }
+      90.5% { opacity: 1; transform: translate(340px, 278px) rotate(174.6deg); }
+      91.5%, 100% { opacity: 0; transform: translate(340px, 278px) rotate(174.6deg); }
+    }
+    .bolt-12 { animation: bolt-12 12s linear infinite; opacity: 0; }
+    @keyframes bolt-12 {
+      0%, 91.5% { opacity: 0; transform: translate(485px, 100px) rotate(3.0deg); }
+      92.5% { opacity: 1; transform: translate(485px, 100px) rotate(3.0deg); }
+      98.5% { opacity: 1; transform: translate(770px, 115px) rotate(3.0deg); }
+      99.5%, 100% { opacity: 0; transform: translate(770px, 115px) rotate(3.0deg); }
     }
 
-    .bolt-3 { animation: bolt3 10s linear infinite; opacity: 0; }
-    @keyframes bolt3 {
-      0%, 58%  { opacity: 0; transform: translate(260px, 250px); }
-      60%      { opacity: 1; transform: translate(390px, 245px); }
-      66%      { opacity: 1; transform: translate(640px, 230px); }
-      68%, 100%{ opacity: 0; transform: translate(680px, 225px); }
+    @keyframes fly-0 {
+      0% { opacity: 1; transform: translate(0px, 0px) scale(0.7); }
+      5% { opacity: 1; transform: translate(-43px, -33px) scale(1.15); }
+      7.5% { opacity: 0; transform: translate(-54px, -42px) scale(0.9); }
+      100% { opacity: 0; transform: translate(-54px, -42px); }
     }
-
-    .bolt-4 { animation: bolt4 10s linear infinite; opacity: 0; }
-    @keyframes bolt4 {
-      0%, 78%  { opacity: 0; transform: translate(630px, 265px); }
-      80%      { opacity: 1; transform: translate(510px, 270px); }
-      86%      { opacity: 1; transform: translate(365px, 280px); }
-      88%, 100%{ opacity: 0; transform: translate(335px, 280px); }
+    @keyframes fly-1 {
+      0% { opacity: 1; transform: translate(0px, 0px) scale(0.7); }
+      5% { opacity: 1; transform: translate(0px, -46px) scale(1.15); }
+      7.5% { opacity: 0; transform: translate(0px, -58px) scale(0.9); }
+      100% { opacity: 0; transform: translate(0px, -58px); }
     }
-
-    /* Clash Spark Bursts */
-    .spark-1 { animation: spk1 10s linear infinite; opacity: 0; }
-    @keyframes spk1 {
-      0%, 20%  { opacity: 0; transform: translate(420px, 145px) scale(0.5); }
-      22%      { opacity: 1; transform: translate(420px, 145px) scale(1.25); }
-      27%, 100%{ opacity: 0; transform: translate(420px, 145px) scale(1.55); }
+    @keyframes fly-2 {
+      0% { opacity: 1; transform: translate(0px, 0px) scale(0.7); }
+      5% { opacity: 1; transform: translate(43px, -33px) scale(1.15); }
+      7.5% { opacity: 0; transform: translate(54px, -42px) scale(0.9); }
+      100% { opacity: 0; transform: translate(54px, -42px); }
     }
-
-    .spark-2 { animation: spk2 10s linear infinite; opacity: 0; }
-    @keyframes spk2 {
-      0%, 34%  { opacity: 0; transform: translate(485px, 255px) scale(0.5); }
-      36%      { opacity: 1; transform: translate(485px, 255px) scale(1.25); }
-      41%, 100%{ opacity: 0; transform: translate(485px, 255px) scale(1.55); }
+    @keyframes fly-3 {
+      0% { opacity: 1; transform: translate(0px, 0px) scale(0.7); }
+      5% { opacity: 1; transform: translate(52px, 0px) scale(1.15); }
+      7.5% { opacity: 0; transform: translate(66px, 0px) scale(0.9); }
+      100% { opacity: 0; transform: translate(66px, 0px); }
     }
-
-    .spark-3 { animation: spk3 10s linear infinite; opacity: 0; }
-    @keyframes spk3 {
-      0%, 46%  { opacity: 0; transform: translate(340px, 240px) scale(0.5); }
-      48%      { opacity: 1; transform: translate(340px, 240px) scale(1.25); }
-      53%, 100%{ opacity: 0; transform: translate(340px, 240px) scale(1.55); }
+    @keyframes fly-4 {
+      0% { opacity: 1; transform: translate(0px, 0px) scale(0.7); }
+      5% { opacity: 1; transform: translate(43px, 33px) scale(1.15); }
+      7.5% { opacity: 0; transform: translate(54px, 42px) scale(0.9); }
+      100% { opacity: 0; transform: translate(54px, 42px); }
     }
-
-    .spark-4 { animation: spk4 10s linear infinite; opacity: 0; }
-    @keyframes spk4 {
-      0%, 50%  { opacity: 0; transform: translate(690px, 145px) scale(0.5); }
-      52%      { opacity: 1; transform: translate(690px, 145px) scale(1.25); }
-      57%, 100%{ opacity: 0; transform: translate(690px, 145px) scale(1.55); }
+    @keyframes fly-5 {
+      0% { opacity: 1; transform: translate(0px, 0px) scale(0.7); }
+      5% { opacity: 1; transform: translate(0px, 46px) scale(1.15); }
+      7.5% { opacity: 0; transform: translate(0px, 58px) scale(0.9); }
+      100% { opacity: 0; transform: translate(0px, 58px); }
     }
-
-    .spark-5 { animation: spk5 10s linear infinite; opacity: 0; }
-    @keyframes spk5 {
-      0%, 78%  { opacity: 0; transform: translate(570px, 165px) scale(0.5); }
-      80%      { opacity: 1; transform: translate(570px, 165px) scale(1.25); }
-      85%, 100%{ opacity: 0; transform: translate(570px, 165px) scale(1.55); }
+    @keyframes fly-6 {
+      0% { opacity: 1; transform: translate(0px, 0px) scale(0.7); }
+      5% { opacity: 1; transform: translate(-43px, 33px) scale(1.15); }
+      7.5% { opacity: 0; transform: translate(-54px, 42px) scale(0.9); }
+      100% { opacity: 0; transform: translate(-54px, 42px); }
+    }
+    @keyframes fly-7 {
+      0% { opacity: 1; transform: translate(0px, 0px) scale(0.7); }
+      5% { opacity: 1; transform: translate(-52px, 0px) scale(1.15); }
+      7.5% { opacity: 0; transform: translate(-66px, 0px) scale(0.9); }
+      100% { opacity: 0; transform: translate(-66px, 0px); }
+    }
+    @keyframes ko-0 {
+      0% { opacity: 1; transform: translate(0px, 0px) scale(0.8); }
+      6.5% { opacity: 1; transform: translate(-67px, -50px) scale(1.3); }
+      10% { opacity: 0; transform: translate(-82px, -62px) scale(0.85); }
+      100% { opacity: 0; transform: translate(-82px, -62px); }
+    }
+    @keyframes ko-1 {
+      0% { opacity: 1; transform: translate(0px, 0px) scale(0.8); }
+      6.5% { opacity: 1; transform: translate(0px, -70px) scale(1.3); }
+      10% { opacity: 0; transform: translate(0px, -86px) scale(0.85); }
+      100% { opacity: 0; transform: translate(0px, -86px); }
+    }
+    @keyframes ko-2 {
+      0% { opacity: 1; transform: translate(0px, 0px) scale(0.8); }
+      6.5% { opacity: 1; transform: translate(67px, -50px) scale(1.3); }
+      10% { opacity: 0; transform: translate(82px, -62px) scale(0.85); }
+      100% { opacity: 0; transform: translate(82px, -62px); }
+    }
+    @keyframes ko-3 {
+      0% { opacity: 1; transform: translate(0px, 0px) scale(0.8); }
+      6.5% { opacity: 1; transform: translate(78px, 0px) scale(1.3); }
+      10% { opacity: 0; transform: translate(96px, 0px) scale(0.85); }
+      100% { opacity: 0; transform: translate(96px, 0px); }
+    }
+    @keyframes ko-4 {
+      0% { opacity: 1; transform: translate(0px, 0px) scale(0.8); }
+      6.5% { opacity: 1; transform: translate(67px, 50px) scale(1.3); }
+      10% { opacity: 0; transform: translate(82px, 62px) scale(0.85); }
+      100% { opacity: 0; transform: translate(82px, 62px); }
+    }
+    @keyframes ko-5 {
+      0% { opacity: 1; transform: translate(0px, 0px) scale(0.8); }
+      6.5% { opacity: 1; transform: translate(0px, 70px) scale(1.3); }
+      10% { opacity: 0; transform: translate(0px, 86px) scale(0.85); }
+      100% { opacity: 0; transform: translate(0px, 86px); }
+    }
+    @keyframes ko-6 {
+      0% { opacity: 1; transform: translate(0px, 0px) scale(0.8); }
+      6.5% { opacity: 1; transform: translate(-67px, 50px) scale(1.3); }
+      10% { opacity: 0; transform: translate(-82px, 62px) scale(0.85); }
+      100% { opacity: 0; transform: translate(-82px, 62px); }
+    }
+    @keyframes ko-7 {
+      0% { opacity: 1; transform: translate(0px, 0px) scale(0.8); }
+      6.5% { opacity: 1; transform: translate(-78px, 0px) scale(1.3); }
+      10% { opacity: 0; transform: translate(-96px, 0px) scale(0.85); }
+      100% { opacity: 0; transform: translate(-96px, 0px); }
     }
   ]]></style>
 
-  <!-- 5 Equally-Scaled TUI Icon Fighters -->
+  <!-- Fixed dark terminal background -->
+  <rect width="100%" height="100%" fill="#0d1117" rx="12" />
+
+  <g clip-path="url(#arena-clip)">
+    <g id="stage">
+      <!-- 5 Equally-Scaled TUI Icon Fighters -->
   <g class="fighter" id="f-antigravity">
     <g class="sprite">
       <text x="-10.8" y="-45.3" fill="#e0b90f" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
@@ -264,84 +443,82 @@
   </g>
   <g class="fighter" id="f-grok">
     <g class="sprite">
-      <text x="-16.2" y="-36.5" fill="#8796ac" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
-      <text x="-10.8" y="-36.5" fill="#8a99ae" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
-      <text x="-5.4" y="-36.5" fill="#8d9cb1" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
-      <text x="0.0" y="-36.5" fill="#8f9eb4" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
-      <text x="5.4" y="-36.5" fill="#92a1b6" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
-      <text x="10.8" y="-36.5" fill="#95a4b9" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
-      <text x="37.8" y="-36.5" fill="#a6b3c5" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
-      <text x="43.2" y="-36.5" fill="#a8b5c7" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
-      <text x="-27.0" y="-27.7" fill="#8392a8" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
-      <text x="-21.6" y="-27.7" fill="#8594aa" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
-      <text x="-16.2" y="-27.7" fill="#8897ac" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
-      <text x="-10.8" y="-27.7" fill="#8a9aaf" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
-      <text x="-5.4" y="-27.7" fill="#8d9cb2" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
-      <text x="0.0" y="-27.7" fill="#909fb4" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
-      <text x="5.4" y="-27.7" fill="#93a2b7" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
-      <text x="10.8" y="-27.7" fill="#96a5ba" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
-      <text x="16.2" y="-27.7" fill="#99a8bc" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
-      <text x="32.4" y="-27.7" fill="#a3b1c3" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
-      <text x="37.8" y="-27.7" fill="#a6b4c6" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
-      <text x="-32.4" y="-18.9" fill="#8090a6" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
-      <text x="-27.0" y="-18.9" fill="#8393a8" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
-      <text x="-21.6" y="-18.9" fill="#8695ab" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
-      <text x="21.6" y="-18.9" fill="#9fadc0" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
-      <text x="27.0" y="-18.9" fill="#a1afc2" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
-      <text x="32.4" y="-18.9" fill="#a5b2c4" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
-      <text x="37.8" y="-18.9" fill="#a8b5c7" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
-      <text x="-37.8" y="-10.1" fill="#7f8ea4" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
-      <text x="-32.4" y="-10.1" fill="#8291a7" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
-      <text x="-27.0" y="-10.1" fill="#8594aa" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
-      <text x="10.8" y="-10.1" fill="#9aa9bd" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
-      <text x="16.2" y="-10.1" fill="#9dabbe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
-      <text x="21.6" y="-10.1" fill="#a0aec1" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
-      <text x="27.0" y="-10.1" fill="#a3b1c3" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
-      <text x="32.4" y="-10.1" fill="#a6b4c6" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
-      <text x="37.8" y="-10.1" fill="#aab7c8" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
-      <text x="-37.8" y="-1.3" fill="#8090a6" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
-      <text x="-32.4" y="-1.3" fill="#8393a8" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
-      <text x="5.4" y="-1.3" fill="#98a7bb" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
-      <text x="10.8" y="-1.3" fill="#9ba9bd" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
-      <text x="32.4" y="-1.3" fill="#a8b5c7" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
-      <text x="37.8" y="-1.3" fill="#abb8c9" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
-      <text x="-37.8" y="7.5" fill="#8291a7" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
-      <text x="-32.4" y="7.5" fill="#8594aa" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
-      <text x="-5.4" y="7.5" fill="#94a3b8" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
-      <text x="0.0" y="7.5" fill="#96a5ba" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
-      <text x="32.4" y="7.5" fill="#aab7c8" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
-      <text x="37.8" y="7.5" fill="#adbacb" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
-      <text x="-37.8" y="16.3" fill="#8393a8" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
-      <text x="-32.4" y="16.3" fill="#8695ab" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
-      <text x="27.0" y="16.3" fill="#a8b5c7" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
-      <text x="32.4" y="16.3" fill="#abb8c9" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
-      <text x="37.8" y="16.3" fill="#aebbcc" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
-      <text x="-37.8" y="25.1" fill="#8594aa" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
-      <text x="-32.4" y="25.1" fill="#8897ac" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
-      <text x="-27.0" y="25.1" fill="#8a9aaf" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
-      <text x="21.6" y="25.1" fill="#a7b4c6" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
-      <text x="27.0" y="25.1" fill="#aab7c8" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
-      <text x="32.4" y="25.1" fill="#adbacb" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
-      <text x="-37.8" y="33.9" fill="#8695ab" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
-      <text x="-32.4" y="33.9" fill="#8998ae" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
-      <text x="-21.6" y="33.9" fill="#8f9eb4" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
-      <text x="-16.2" y="33.9" fill="#92a1b6" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
-      <text x="-10.8" y="33.9" fill="#95a4b9" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
-      <text x="-5.4" y="33.9" fill="#98a7bb" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
-      <text x="0.0" y="33.9" fill="#9caabe" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
-      <text x="5.4" y="33.9" fill="#9fadc0" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
-      <text x="10.8" y="33.9" fill="#a1afc2" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
-      <text x="16.2" y="33.9" fill="#a5b2c4" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
-      <text x="21.6" y="33.9" fill="#a8b5c7" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
-      <text x="27.0" y="33.9" fill="#abb8c9" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
-      <text x="-43.2" y="42.7" fill="#8594aa" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
-      <text x="-16.2" y="42.7" fill="#93a2b7" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
-      <text x="-10.8" y="42.7" fill="#96a5ba" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
-      <text x="-5.4" y="42.7" fill="#99a8bc" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
-      <text x="0.0" y="42.7" fill="#9dabbe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
-      <text x="5.4" y="42.7" fill="#a0aec1" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
-      <text x="10.8" y="42.7" fill="#a3b1c3" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
-      <text x="16.2" y="42.7" fill="#a6b4c6" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="-16.2" y="-36.5" fill="#e7ecf2" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="-10.8" y="-36.5" fill="#e9eef4" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="-5.4" y="-36.5" fill="#ebf0f5" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="0.0" y="-36.5" fill="#edf2f7" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="5.4" y="-36.5" fill="#f0f4f8" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="10.8" y="-36.5" fill="#f1f5f9" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="37.8" y="-36.5" fill="#f5f8fb" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="43.2" y="-36.5" fill="#f6f9fb" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="-27.0" y="-27.7" fill="#e3e9f0" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="-21.6" y="-27.7" fill="#e5ebf1" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-16.2" y="-27.7" fill="#e7edf3" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-10.8" y="-27.7" fill="#e9eff4" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-5.4" y="-27.7" fill="#ecf0f6" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="0.0" y="-27.7" fill="#eef2f7" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="5.4" y="-27.7" fill="#f0f4f8" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="10.8" y="-27.7" fill="#f2f5f9" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="16.2" y="-27.7" fill="#f2f6fa" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="32.4" y="-27.7" fill="#f5f8fb" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="37.8" y="-27.7" fill="#f6f8fb" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-32.4" y="-18.9" fill="#e2e8ef" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-27.0" y="-18.9" fill="#e4eaf1" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-21.6" y="-18.9" fill="#e6ecf2" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="21.6" y="-18.9" fill="#f4f7fa" textLength="11.2" lengthAdjust="spacingAndGlyphs">▄█</text>
+      <text x="32.4" y="-18.9" fill="#f5f8fb" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="37.8" y="-18.9" fill="#f6f9fb" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-37.8" y="-10.1" fill="#e0e7ef" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-32.4" y="-10.1" fill="#e3e9f0" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-27.0" y="-10.1" fill="#e5ebf1" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="10.8" y="-10.1" fill="#f3f6fa" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="16.2" y="-10.1" fill="#f3f7fa" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="21.6" y="-10.1" fill="#f4f7fa" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="27.0" y="-10.1" fill="#f5f8fb" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="32.4" y="-10.1" fill="#f6f8fb" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="37.8" y="-10.1" fill="#f6f9fb" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-37.8" y="-1.3" fill="#e2e8ef" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-32.4" y="-1.3" fill="#e4eaf1" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="5.4" y="-1.3" fill="#f2f6f9" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="10.8" y="-1.3" fill="#f3f6fa" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="32.4" y="-1.3" fill="#f6f9fb" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="37.8" y="-1.3" fill="#f7f9fc" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-37.8" y="7.5" fill="#e3e9f0" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-32.4" y="7.5" fill="#e5ebf1" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-5.4" y="7.5" fill="#f1f5f9" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="0.0" y="7.5" fill="#f2f5f9" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="32.4" y="7.5" fill="#f6f9fb" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="37.8" y="7.5" fill="#f7fafc" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-37.8" y="16.3" fill="#e4eaf1" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-32.4" y="16.3" fill="#e6ecf2" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="27.0" y="16.3" fill="#f6f9fb" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="32.4" y="16.3" fill="#f7f9fc" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="37.8" y="16.3" fill="#f8fafc" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="-37.8" y="25.1" fill="#e5ebf1" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-32.4" y="25.1" fill="#e7edf3" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-27.0" y="25.1" fill="#e9eff4" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="21.6" y="25.1" fill="#f6f8fb" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="27.0" y="25.1" fill="#f6f9fb" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="32.4" y="25.1" fill="#f7fafc" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-37.8" y="33.9" fill="#e6ecf2" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-32.4" y="33.9" fill="#e8eef3" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="-21.6" y="33.9" fill="#edf2f7" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="-16.2" y="33.9" fill="#f0f4f8" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="-10.8" y="33.9" fill="#f1f5f9" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="-5.4" y="33.9" fill="#f2f6f9" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="0.0" y="33.9" fill="#f3f6fa" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="5.4" y="33.9" fill="#f4f7fa" textLength="11.2" lengthAdjust="spacingAndGlyphs">▄█</text>
+      <text x="16.2" y="33.9" fill="#f5f8fb" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="21.6" y="33.9" fill="#f6f9fb" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="27.0" y="33.9" fill="#f7f9fc" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="-43.2" y="42.7" fill="#e5ebf1" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="-16.2" y="42.7" fill="#f0f4f8" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="-10.8" y="42.7" fill="#f2f5f9" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="-5.4" y="42.7" fill="#f2f6fa" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="0.0" y="42.7" fill="#f3f7fa" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="5.4" y="42.7" fill="#f4f7fa" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="10.8" y="42.7" fill="#f5f8fb" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="16.2" y="42.7" fill="#f6f8fb" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
     </g>
   </g>
   <g class="fighter" id="f-claudecode">
@@ -601,49 +778,101 @@
     </g>
   </g>
 
-  <!-- TUI ASCII Projectiles -->
-  <g class="fx bolt-1">
-    <text x="0" y="0" fill="#4285f4">==*</text>
-  </g>
-  <g class="fx bolt-2">
-    <text x="0" y="0" fill="#d97757">&lt;++</text>
-  </g>
-  <g class="fx bolt-3">
-    <text x="0" y="0" fill="#4d6bfe">~~~</text>
-  </g>
-  <g class="fx bolt-4">
-    <text x="0" y="0" fill="#7a9dff">&lt;&gt;_</text>
-  </g>
+      <!-- TUI Signature Projectiles -->
+      <g class="fx bolt-1"><text x="0" y="0"><tspan fill="#ea4335">.</tspan><tspan fill="#fbbc05">.</tspan><tspan fill="#34a853">=</tspan><tspan fill="#4285f4">*</tspan></text></g>
+      <g class="fx bolt-2"><text x="0" y="0"><tspan fill="#d97757">..</tspan><tspan fill="#f4b094">+++</tspan></text></g>
+      <g class="fx bolt-3"><text x="0" y="0"><tspan fill="#4d6bfe">..</tspan><tspan fill="#7491ff">~~~</tspan></text></g>
+      <g class="fx bolt-4"><text x="0" y="0"><tspan fill="#b1a7ff">..</tspan><tspan fill="#7a9dff">&gt;&gt;_</tspan></text></g>
+      <g class="fx bolt-5"><text x="0" y="0"><tspan fill="#cbd5e1">..</tspan><tspan fill="#ffffff">///</tspan></text></g>
+      <g class="fx bolt-6"><text x="0" y="0"><tspan fill="#ea4335">.</tspan><tspan fill="#fbbc05">.</tspan><tspan fill="#34a853">=</tspan><tspan fill="#4285f4">*</tspan></text></g>
+      <g class="fx bolt-7"><text x="0" y="0"><tspan fill="#4d6bfe">..</tspan><tspan fill="#7491ff">~~~</tspan></text></g>
+      <g class="fx bolt-8"><text x="0" y="0"><tspan fill="#d97757">..</tspan><tspan fill="#f4b094">+++</tspan></text></g>
+      <g class="fx bolt-9"><text x="0" y="0"><tspan fill="#cbd5e1">..</tspan><tspan fill="#ffffff">///</tspan></text></g>
+      <g class="fx bolt-10"><text x="0" y="0"><tspan fill="#ea4335">.</tspan><tspan fill="#fbbc05">.</tspan><tspan fill="#34a853">=</tspan><tspan fill="#4285f4">*</tspan></text></g>
+      <g class="fx bolt-11"><text x="0" y="0"><tspan fill="#b1a7ff">..</tspan><tspan fill="#7a9dff">&gt;&gt;_</tspan></text></g>
+      <g class="fx bolt-12"><text x="0" y="0"><tspan fill="#cbd5e1">..</tspan><tspan fill="#ffffff">///</tspan></text></g>
 
-  <!-- TUI Clash Impact Sparks -->
-  <g class="fx spark-1">
-    <text x="-18" y="-14" fill="#fbbc05">*</text>
-    <text x="18" y="-14" fill="#94a3b8">+</text>
-    <text x="-18" y="14" fill="#4285f4">░</text>
-    <text x="18" y="14" fill="#34a853">x</text>
-  </g>
-  <g class="fx spark-2">
-    <text x="-18" y="-14" fill="#4d6bfe">▒</text>
-    <text x="18" y="-14" fill="#7a9dff">&gt;</text>
-    <text x="-16" y="14" fill="#3941ff">!</text>
-    <text x="18" y="14" fill="#4d6bfe">+</text>
-  </g>
-  <g class="fx spark-3">
-    <text x="-18" y="-14" fill="#ea4335">*</text>
-    <text x="18" y="-14" fill="#4d6bfe">~</text>
-    <text x="-18" y="14" fill="#34a853">▓</text>
-    <text x="18" y="14" fill="#4285f4">x</text>
-  </g>
-  <g class="fx spark-4">
-    <text x="-18" y="-14" fill="#d97757">+</text>
-    <text x="18" y="-14" fill="#64748b">/</text>
-    <text x="-18" y="14" fill="#94a3b8">▓</text>
-    <text x="18" y="14" fill="#d97757">x</text>
-  </g>
-  <g class="fx spark-5">
-    <text x="-18" y="-14" fill="#ea4335">*</text>
-    <text x="18" y="-14" fill="#34a853">+</text>
-    <text x="-18" y="14" fill="#64748b">!</text>
-    <text x="18" y="14" fill="#4285f4">▒</text>
+      <!-- 8-Way Radial TUI Pixel Explosions -->
+      <g class="fx" transform="translate(425, 148)">
+        <text x="0" y="0" fill="#fbbc05" style="animation:fly-0 12s linear -9.840s infinite;opacity:0">*</text>
+        <text x="0" y="0" fill="#ffffff" style="animation:fly-1 12s linear -9.840s infinite;opacity:0">+</text>
+        <text x="0" y="0" fill="#4285f4" style="animation:fly-2 12s linear -9.840s infinite;opacity:0">x</text>
+        <text x="0" y="0" fill="#e2e8f0" style="animation:fly-3 12s linear -9.840s infinite;opacity:0">!</text>
+        <text x="0" y="0" fill="#34a853" style="animation:fly-4 12s linear -9.840s infinite;opacity:0">░</text>
+        <text x="0" y="0" fill="#ffffff" style="animation:fly-5 12s linear -9.840s infinite;opacity:0">▒</text>
+        <text x="0" y="0" fill="#ea4335" style="animation:fly-6 12s linear -9.840s infinite;opacity:0">▓</text>
+        <text x="0" y="0" fill="#cbd5e1" style="animation:fly-7 12s linear -9.840s infinite;opacity:0">▀</text>
+      </g>
+      <g class="fx" transform="translate(641, 226)">
+        <text x="0" y="0" fill="#d97757" style="animation:fly-0 12s linear -8.880s infinite;opacity:0">+</text>
+        <text x="0" y="0" fill="#ffffff" style="animation:fly-1 12s linear -8.880s infinite;opacity:0">x</text>
+        <text x="0" y="0" fill="#7a9dff" style="animation:fly-2 12s linear -8.880s infinite;opacity:0">!</text>
+        <text x="0" y="0" fill="#b1a7ff" style="animation:fly-3 12s linear -8.880s infinite;opacity:0">░</text>
+        <text x="0" y="0" fill="#f4b094" style="animation:fly-4 12s linear -8.880s infinite;opacity:0">▒</text>
+        <text x="0" y="0" fill="#ffffff" style="animation:fly-5 12s linear -8.880s infinite;opacity:0">▓</text>
+        <text x="0" y="0" fill="#3941ff" style="animation:fly-6 12s linear -8.880s infinite;opacity:0">▀</text>
+        <text x="0" y="0" fill="#d97757" style="animation:fly-7 12s linear -8.880s infinite;opacity:0">*</text>
+      </g>
+      <g class="fx" transform="translate(350, 241)">
+        <text x="0" y="0" fill="#4d6bfe" style="animation:fly-0 12s linear -8.160s infinite;opacity:0">x</text>
+        <text x="0" y="0" fill="#ffffff" style="animation:fly-1 12s linear -8.160s infinite;opacity:0">!</text>
+        <text x="0" y="0" fill="#ea4335" style="animation:fly-2 12s linear -8.160s infinite;opacity:0">░</text>
+        <text x="0" y="0" fill="#34a853" style="animation:fly-3 12s linear -8.160s infinite;opacity:0">▒</text>
+        <text x="0" y="0" fill="#7491ff" style="animation:fly-4 12s linear -8.160s infinite;opacity:0">▓</text>
+        <text x="0" y="0" fill="#ffffff" style="animation:fly-5 12s linear -8.160s infinite;opacity:0">▀</text>
+        <text x="0" y="0" fill="#4285f4" style="animation:fly-6 12s linear -8.160s infinite;opacity:0">*</text>
+        <text x="0" y="0" fill="#fbbc05" style="animation:fly-7 12s linear -8.160s infinite;opacity:0">+</text>
+      </g>
+      <g class="fx" transform="translate(370, 230)">
+        <text x="0" y="0" fill="#4d6bfe" style="animation:ko-0 12s linear -6.600s infinite;opacity:0">!</text>
+        <text x="0" y="0" fill="#ffffff" style="animation:ko-1 12s linear -6.600s infinite;opacity:0">░</text>
+        <text x="0" y="0" fill="#7491ff" style="animation:ko-2 12s linear -6.600s infinite;opacity:0">▒</text>
+        <text x="0" y="0" fill="#fbbc05" style="animation:ko-3 12s linear -6.600s infinite;opacity:0">▓</text>
+        <text x="0" y="0" fill="#4285f4" style="animation:ko-4 12s linear -6.600s infinite;opacity:0">▀</text>
+        <text x="0" y="0" fill="#ffffff" style="animation:ko-5 12s linear -6.600s infinite;opacity:0">*</text>
+        <text x="0" y="0" fill="#3b5bff" style="animation:ko-6 12s linear -6.600s infinite;opacity:0">+</text>
+        <text x="0" y="0" fill="#ea4335" style="animation:ko-7 12s linear -6.600s infinite;opacity:0">x</text>
+      </g>
+      <g class="fx" transform="translate(685, 145)">
+        <text x="0" y="0" fill="#d97757" style="animation:fly-0 12s linear -5.040s infinite;opacity:0">░</text>
+        <text x="0" y="0" fill="#ffffff" style="animation:fly-1 12s linear -5.040s infinite;opacity:0">▒</text>
+        <text x="0" y="0" fill="#e2e8f0" style="animation:fly-2 12s linear -5.040s infinite;opacity:0">▓</text>
+        <text x="0" y="0" fill="#f4b094" style="animation:fly-3 12s linear -5.040s infinite;opacity:0">▀</text>
+        <text x="0" y="0" fill="#cbd5e1" style="animation:fly-4 12s linear -5.040s infinite;opacity:0">*</text>
+        <text x="0" y="0" fill="#ffffff" style="animation:fly-5 12s linear -5.040s infinite;opacity:0">+</text>
+        <text x="0" y="0" fill="#d97757" style="animation:fly-6 12s linear -5.040s infinite;opacity:0">x</text>
+        <text x="0" y="0" fill="#e2e8f0" style="animation:fly-7 12s linear -5.040s infinite;opacity:0">!</text>
+      </g>
+      <g class="fx" transform="translate(592, 165)">
+        <text x="0" y="0" fill="#b1a7ff" style="animation:fly-0 12s linear -3.600s infinite;opacity:0">▒</text>
+        <text x="0" y="0" fill="#ffffff" style="animation:fly-1 12s linear -3.600s infinite;opacity:0">▓</text>
+        <text x="0" y="0" fill="#4285f4" style="animation:fly-2 12s linear -3.600s infinite;opacity:0">▀</text>
+        <text x="0" y="0" fill="#34a853" style="animation:fly-3 12s linear -3.600s infinite;opacity:0">*</text>
+        <text x="0" y="0" fill="#7a9dff" style="animation:fly-4 12s linear -3.600s infinite;opacity:0">+</text>
+        <text x="0" y="0" fill="#ffffff" style="animation:fly-5 12s linear -3.600s infinite;opacity:0">x</text>
+        <text x="0" y="0" fill="#fbbc05" style="animation:fly-6 12s linear -3.600s infinite;opacity:0">!</text>
+        <text x="0" y="0" fill="#ea4335" style="animation:fly-7 12s linear -3.600s infinite;opacity:0">░</text>
+      </g>
+      <g class="fx" transform="translate(491, 263)">
+        <text x="0" y="0" fill="#4d6bfe" style="animation:fly-0 12s linear -3.120s infinite;opacity:0">▓</text>
+        <text x="0" y="0" fill="#ffffff" style="animation:fly-1 12s linear -3.120s infinite;opacity:0">▀</text>
+        <text x="0" y="0" fill="#7a9dff" style="animation:fly-2 12s linear -3.120s infinite;opacity:0">*</text>
+        <text x="0" y="0" fill="#3941ff" style="animation:fly-3 12s linear -3.120s infinite;opacity:0">+</text>
+        <text x="0" y="0" fill="#7491ff" style="animation:fly-4 12s linear -3.120s infinite;opacity:0">x</text>
+        <text x="0" y="0" fill="#ffffff" style="animation:fly-5 12s linear -3.120s infinite;opacity:0">!</text>
+        <text x="0" y="0" fill="#b1a7ff" style="animation:fly-6 12s linear -3.120s infinite;opacity:0">░</text>
+        <text x="0" y="0" fill="#4d6bfe" style="animation:fly-7 12s linear -3.120s infinite;opacity:0">▒</text>
+      </g>
+      <g class="fx" transform="translate(688, 182)">
+        <text x="0" y="0" fill="#ffffff" style="animation:ko-0 12s linear -2.160s infinite;opacity:0">▀</text>
+        <text x="0" y="0" fill="#e2e8f0" style="animation:ko-1 12s linear -2.160s infinite;opacity:0">*</text>
+        <text x="0" y="0" fill="#d97757" style="animation:ko-2 12s linear -2.160s infinite;opacity:0">+</text>
+        <text x="0" y="0" fill="#ffffff" style="animation:ko-3 12s linear -2.160s infinite;opacity:0">x</text>
+        <text x="0" y="0" fill="#cbd5e1" style="animation:ko-4 12s linear -2.160s infinite;opacity:0">!</text>
+        <text x="0" y="0" fill="#f4b094" style="animation:ko-5 12s linear -2.160s infinite;opacity:0">░</text>
+        <text x="0" y="0" fill="#ffffff" style="animation:ko-6 12s linear -2.160s infinite;opacity:0">▒</text>
+        <text x="0" y="0" fill="#94a3b8" style="animation:ko-7 12s linear -2.160s infinite;opacity:0">▓</text>
+      </g>
+    </g>
   </g>
 </svg>
