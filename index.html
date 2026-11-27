@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI TUI Battle</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html, body {
+      width: 100%;
+      height: 100%;
+      background: #0d1117;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    #arena {
+      margin: 0;
+      padding: 0;
+      font-family: 'JetBrains Mono', 'Cascadia Code', 'Fira Code', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      font-size: clamp(6px, min(1.12vw, 2.02vh), 14px);
+      line-height: 1.0;
+      letter-spacing: 0;
+      font-variant-ligatures: none;
+      font-feature-settings: "liga" 0, "calt" 0;
+      white-space: pre;
+      user-select: none;
+      color: #c9d1d9;
+    }
+    #arena .r {
+      display: block;
+      height: 1em;
+      line-height: 1.0;
+      white-space: pre;
+    }
+    #arena span {
+      text-shadow: 0 0 0.5px currentColor;
+    }
+    .b {
+      font-weight: 700;
+    }
+    #probe {
+      position: absolute;
+      visibility: hidden;
+      pointer-events: none;
+      white-space: pre;
+      font-family: inherit;
+      font-size: inherit;
+      line-height: 1.0;
+      letter-spacing: 0;
+      font-variant-ligatures: none;
+      font-feature-settings: "liga" 0, "calt" 0;
+    }
+  </style>
+</head>
+<body>
+  <pre id="arena" aria-label="AI Icons TUI Battle"><span id="probe">MMMMMMMMMM</span></pre>
+
+  <script>
+    (() => {
+      'use strict';
+
+      const COLS = 144;
+      const ROWS = 48;
+      const HP_ROWS = ROWS * 2; // 96 half-pixel rows
+      const SPR_W = 28;
+      const SPR_H_HP = 28; // 28 cols x 14 rows
+
+      const FIGHTERS_DEF = [
+        {
+          id: 'antigravity',
+          fillRule: 'nonzero',
+          gradMode: 'diag',
+          stops: [[234, 67, 53], [251, 188, 5], [52, 168, 83], [66, 133, 244]],
+          fxColor: '#4285f4',
+          bolt: '*',
+          path: 'M19.94 20.59c1.09.82 2.73.27 1.23-1.23C16.67 15 17.62 3 12.03 3S7.39 15 2.89 19.36c-1.64 1.64.14 2.05 1.23 1.23c4.23-2.86 3.95-7.91 7.91-7.91s3.68 5.05 7.91 7.91',
+        },
+        {
+          id: 'grok',
+          fillRule: 'evenodd',
+          gradMode: 'diag',
+          stops: [[203, 213, 225], [241, 245, 249], [255, 255, 255]],
+          fxColor: '#e2e8f0',
+          bolt: '/',
+          path: 'M9.27 15.29l7.978-5.897c.391-.29.95-.177 1.137.272.98 2.369.542 5.215-1.41 7.169-1.951 1.954-4.667 2.382-7.149 1.406l-2.711 1.257c3.889 2.661 8.611 2.003 11.562-.953 2.341-2.344 3.066-5.539 2.388-8.42l.006.007c-.983-4.232.242-5.924 2.75-9.383.06-.082.12-.164.179-.248l-3.301 3.305v-.01L9.267 15.292M7.623 16.723c-2.792-2.67-2.31-6.801.071-9.184 1.761-1.763 4.647-2.483 7.166-1.425l2.705-1.25a7.808 7.808 0 00-1.829-1A8.975 8.975 0 005.984 5.83c-2.533 2.536-3.33 6.436-1.962 9.764 1.022 2.487-.653 4.246-2.34 6.022-.599.63-1.199 1.259-1.682 1.925l7.62-6.815',
+        },
+        {
+          id: 'claudecode',
+          fillRule: 'evenodd',
+          gradMode: 'diag',
+          stops: [[217, 119, 87], [226, 130, 98], [232, 141, 109]],
+          fxColor: '#d97757',
+          bolt: '+',
+          path: 'M20.998 10.949H24v3.102h-3v3.028h-1.487V20H18v-2.921h-1.487V20H15v-2.921H9V20H7.488v-2.921H6V20H4.487v-2.921H3V14.05H0V10.95h3V5h17.998v5.949zM6 10.949h1.488V8.102H6v2.847zm10.51 0H18V8.102h-1.49v2.847z',
+        },
+        {
+          id: 'codex',
+          fillRule: 'evenodd',
+          gradMode: 'vert',
+          stops: [[177, 167, 255], [122, 157, 255], [57, 65, 255]],
+          fxColor: '#7a9dff',
+          bolt: '>',
+          path: 'M8.086.457a6.105 6.105 0 013.046-.415c1.333.153 2.521.72 3.564 1.7a.117.117 0 00.107.029c1.408-.346 2.762-.224 4.061.366l.063.03.154.076c1.357.703 2.33 1.77 2.918 3.198.278.679.418 1.388.421 2.126a5.655 5.655 0 01-.18 1.631.167.167 0 00.04.155 5.982 5.982 0 011.578 2.891c.385 1.901-.01 3.615-1.183 5.14l-.182.22a6.063 6.063 0 01-2.934 1.851.162.162 0 00-.108.102c-.255.736-.511 1.364-.987 1.992-1.199 1.582-2.962 2.462-4.948 2.451-1.583-.008-2.986-.587-4.21-1.736a.145.145 0 00-.14-.032c-.518.167-1.04.191-1.604.185a5.924 5.924 0 01-2.595-.622 6.058 6.058 0 01-2.146-1.781c-.203-.269-.404-.522-.551-.821a7.74 7.74 0 01-.495-1.283 6.11 6.11 0 01-.017-3.064.166.166 0 00.008-.074.115.115 0 00-.037-.064 5.958 5.958 0 01-1.38-2.202 5.196 5.196 0 01-.333-1.589 6.915 6.915 0 01.188-2.132c.45-1.484 1.309-2.648 2.577-3.493.282-.188.55-.334.802-.438.286-.12.573-.22.861-.304a.129.129 0 00.087-.087A6.016 6.016 0 015.635 2.31C6.315 1.464 7.132.846 8.086.457zm-.804 7.85a.848.848 0 00-1.473.842l1.694 2.965-1.688 2.848a.849.849 0 001.46.864l1.94-3.272a.849.849 0 00.007-.854l-1.94-3.393zm5.446 6.24a.849.849 0 000 1.695h4.848a.849.849 0 000-1.696h-4.848z',
+        },
+        {
+          id: 'deepseek',
+          fillRule: 'evenodd',
+          gradMode: 'diag',
+          stops: [[59, 91, 255], [77, 107, 254], [116, 145, 255]],
+          fxColor: '#4d6bfe',
+          bolt: '~',
+          eyePoint: [12.89, 11.56],
+          path: 'M23.748 4.482c-.254-.124-.364.113-.512.234-.051.039-.094.09-.137.136-.372.397-.806.657-1.373.626-.829-.046-1.537.214-2.163.848-.133-.782-.575-1.248-1.247-1.548-.352-.156-.708-.311-.955-.65-.172-.241-.219-.51-.305-.774-.055-.16-.11-.323-.293-.35-.2-.031-.278.136-.356.276-.313.572-.434 1.202-.422 1.84.027 1.436.633 2.58 1.838 3.393.137.093.172.187.129.323-.082.28-.18.552-.266.833-.055.179-.137.217-.329.14a5.526 5.526 0 01-1.736-1.18c-.857-.828-1.631-1.742-2.597-2.458a11.365 11.365 0 00-.689-.471c-.985-.957.13-1.743.388-1.836.27-.098.093-.432-.779-.428-.872.004-1.67.295-2.687.684a3.055 3.055 0 01-.465.137 9.597 9.597 0 00-2.883-.102c-1.885.21-3.39 1.102-4.497 2.623C.082 8.606-.231 10.684.152 12.85c.403 2.284 1.569 4.175 3.36 5.653 1.858 1.533 3.997 2.284 6.438 2.14 1.482-.085 3.133-.284 4.994-1.86.47.234.962.327 1.78.397.63.059 1.236-.03 1.705-.128.735-.156.684-.837.419-.961-2.155-1.004-1.682-.595-2.113-.926 1.096-1.296 2.746-2.642 3.392-7.003.05-.347.007-.565 0-.845-.004-.17.035-.237.23-.256a4.173 4.173 0 001.545-.475c1.396-.763 1.96-2.015 2.093-3.517.02-.23-.004-.467-.247-.588zM11.581 18c-2.089-1.642-3.102-2.183-3.52-2.16-.392.024-.321.471-.235.763.09.288.207.486.371.739.114.167.192.416-.113.603-.673.416-1.842-.14-1.897-.167-1.361-.802-2.5-1.86-3.301-3.307-.774-1.393-1.224-2.887-1.298-4.482-.02-.386.093-.522.477-.592a4.696 4.696 0 011.529-.039c2.132.312 3.946 1.265 5.468 2.774.868.86 1.525 1.887 2.202 2.891.72 1.066 1.494 2.082 2.48 2.914.348.292.625.514.891.677-.802.09-2.14.11-3.054-.614zm1-6.44a.306.306 0 01.415-.287.302.302 0 01.2.288.306.306 0 01-.31.307.303.303 0 01-.304-.308zm3.11 1.596c-.2.081-.399.151-.59.16a1.245 1.245 0 01-.798-.254c-.274-.23-.47-.358-.552-.758a1.73 1.73 0 01.016-.588c.07-.327-.008-.537-.239-.727-.187-.156-.426-.199-.688-.199a.559.559 0 01-.254-.078c-.11-.054-.2-.19-.114-.358.028-.054.16-.186.192-.21.356-.202.767-.136 1.146.016.352.144.618.408 1.001.782.391.451.462.576.685.914.176.265.336.537.445.848.067.195-.019.354-.25.452z',
+        },
+      ];
+
+      function measureCellAspect() {
+        const probe = document.getElementById('probe');
+        if (!probe) return 0.56;
+        const rect = probe.getBoundingClientRect();
+        if (rect.width > 0 && rect.height > 0) {
+          const ratio = rect.width / 10 / rect.height;
+          if (ratio >= 0.44 && ratio <= 0.72) return ratio;
+        }
+        return 0.56;
+      }
+
+      function rgbToHex(r, g, b) {
+        const cr = Math.max(0, Math.min(255, r | 0));
+        const cg = Math.max(0, Math.min(255, g | 0));
+        const cb = Math.max(0, Math.min(255, b | 0));
+        return '#' + ((1 << 24) | (cr << 16) | (cg << 8) | cb).toString(16).slice(1);
+      }
+
+      function sampleStops(stops, t) {
+        const c = Math.max(0, Math.min(1, t));
+        const s = c * (stops.length - 1);
+        const idx = Math.min(stops.length - 2, Math.floor(s));
+        const f = s - idx;
+        const a = stops[idx];
+        const b = stops[idx + 1];
+        return [
+          a[0] + (b[0] - a[0]) * f,
+          a[1] + (b[1] - a[1]) * f,
+          a[2] + (b[2] - a[2]) * f,
+        ];
+      }
+
+      function bakeSprite(def, cellAspect) {
+        const probeCv = document.createElement('canvas');
+        probeCv.width = 160;
+        probeCv.height = 160;
+        const pCtx = probeCv.getContext('2d');
+        const pathObj = new Path2D(def.path);
+        pCtx.save();
+        pCtx.scale(5, 5);
+        pCtx.translate(4, 4);
+        pCtx.fillStyle = '#ffffff';
+        pCtx.fill(pathObj, def.fillRule);
+        pCtx.restore();
+
+        const pData = pCtx.getImageData(0, 0, 160, 160).data;
+        let minX = 160, maxX = -1, minY = 160, maxY = -1;
+        for (let y = 0; y < 160; y++) {
+          for (let x = 0; x < 160; x++) {
+            if (pData[(y * 160 + x) * 4 + 3] > 24) {
+              if (x < minX) minX = x;
+              if (x > maxX) maxX = x;
+              if (y < minY) minY = y;
+              if (y > maxY) maxY = y;
+            }
+          }
+        }
+        const svgMinX = minX / 5 - 4;
+        const svgMaxX = (maxX + 1) / 5 - 4;
+        const svgMinY = minY / 5 - 4;
+        const svgMaxY = (maxY + 1) / 5 - 4;
+        const bboxW = Math.max(1, svgMaxX - svgMinX);
+        const bboxH = Math.max(1, svgMaxY - svgMinY);
+        const svgCx = (svgMinX + svgMaxX) * 0.5;
+        const svgCy = (svgMinY + svgMaxY) * 0.5;
+
+        // Visual aspect ratio of 1 col vs 1 half-row is (2 * cellAspect)
+        const hpAspect = 2 * cellAspect;
+        const targetVisualSpan = 25.0; // uniform max visual size for all 5 fighters
+        const maxSvgDim = Math.max(bboxW, bboxH);
+        const scaleY = targetVisualSpan / maxSvgDim;
+        const scaleX = scaleY / hpAspect;
+
+        const SS = 4;
+        const cv = document.createElement('canvas');
+        cv.width = SPR_W * SS;
+        cv.height = SPR_H_HP * SS;
+        const ctx = cv.getContext('2d');
+        ctx.save();
+        ctx.translate(cv.width * 0.5, cv.height * 0.5);
+        ctx.scale(scaleX * SS, scaleY * SS);
+        ctx.translate(-svgCx, -svgCy);
+        ctx.fillStyle = '#ffffff';
+        ctx.fill(pathObj, def.fillRule);
+        ctx.restore();
+
+        const img = ctx.getImageData(0, 0, cv.width, cv.height).data;
+        const mask = new Uint8Array(SPR_W * SPR_H_HP);
+        const colors = new Array(SPR_W * SPR_H_HP).fill(null);
+
+        for (let hy = 0; hy < SPR_H_HP; hy++) {
+          for (let cx = 0; cx < SPR_W; cx++) {
+            let sum = 0;
+            for (let sy = 0; sy < SS; sy++) {
+              const py = hy * SS + sy;
+              for (let sx = 0; sx < SS; sx++) {
+                const px = cx * SS + sx;
+                sum += img[(py * cv.width + px) * 4 + 3] / 255;
+              }
+            }
+            const cov = sum / (SS * SS);
+            if (cov >= 0.44) {
+              const idx = hy * SPR_W + cx;
+              mask[idx] = 1;
+              const t = def.gradMode === 'vert'
+                ? hy / (SPR_H_HP - 1)
+                : (cx / (SPR_W - 1)) * 0.8 + (hy / (SPR_H_HP - 1)) * 0.2;
+              colors[idx] = sampleStops(def.stops, t);
+            }
+          }
+        }
+
+        // Preserve DeepSeek whale eye cutout explicitly at sub-pixel radius
+        if (def.eyePoint) {
+          const ex = Math.floor(SPR_W * 0.5 + (def.eyePoint[0] - svgCx) * scaleX);
+          const ey = Math.floor(SPR_H_HP * 0.5 + (def.eyePoint[1] - svgCy) * scaleY);
+          if (ex >= 0 && ex < SPR_W && ey >= 0 && ey < SPR_H_HP) {
+            mask[ey * SPR_W + ex] = 0;
+            colors[ey * SPR_W + ex] = null;
+          }
+        }
+
+        return { mask, colors };
+      }
+
+      // =====================================================================
+      // 5-Way Simulation State
+      // =====================================================================
+      let cellAspect = measureCellAspect();
+      let sprites = FIGHTERS_DEF.map((def) => bakeSprite(def, cellAspect));
+
+      const startPositions = [
+        [28, 24],  // Antigravity
+        [72, 20],  // Grok
+        [116, 24], // Claude Code
+        [42, 68],  // Codex
+        [102, 68], // DeepSeek
+      ];
+
+      const fighters = FIGHTERS_DEF.map((def, i) => ({
+        idx: i,
+        def,
+        x: startPositions[i][0],
+        y: startPositions[i][1],
+        vx: (i % 2 === 0 ? 1 : -1) * 10,
+        vy: (i < 3 ? 1 : -1) * 6,
+        target: (i + 1) % FIGHTERS_DEF.length,
+        aiTimer: 0.4 + i * 0.25,
+        dashTimer: 0,
+        shotCooldown: 0.45 + i * 0.28,
+        flashTimer: 0,
+        hp: 8,
+        koTimer: 0,
+      }));
+
+      const projectiles = [];
+      const particles = [];
+      let shakeTimer = 0;
+      let shakeX = 0;
+      let shakeY = 0;
+
+      function spawnBurst(xCols, yHp, colorHex, count = 16) {
+        const chars = ['*', '+', 'x', '!', '░', '▒', '▓'];
+        for (let i = 0; i < count; i++) {
+          const ang = (Math.PI * 2 * i) / count + (Math.random() - 0.5) * 0.4;
+          const spd = 16 + Math.random() * 26;
+          particles.push({
+            x: xCols,
+            y: yHp,
+            vx: Math.cos(ang) * spd,
+            vy: Math.sin(ang) * spd * 1.3,
+            life: 0.28 + Math.random() * 0.28,
+            maxLife: 0.55,
+            ch: chars[i % chars.length],
+            color: i % 3 === 0 ? '#ffffff' : colorHex,
+          });
+        }
+      }
+
+      function spawnTrail(xCols, yHp, colorHex, ch) {
+        particles.push({
+          x: xCols,
+          y: yHp,
+          vx: (Math.random() - 0.5) * 2,
+          vy: (Math.random() - 0.5) * 2,
+          life: 0.16,
+          maxLife: 0.16,
+          ch,
+          color: colorHex,
+        });
+      }
+
+      function applyHit(victim, attackerX, attackerY, fxColor) {
+        victim.flashTimer = 0.14;
+        victim.hp -= 1;
+        const dx = victim.x - attackerX;
+        const dy = victim.y - attackerY;
+        const dist = Math.hypot(dx, dy) || 1;
+        victim.vx += (dx / dist) * 36;
+        victim.vy += (dy / dist) * 40;
+        shakeTimer = 0.09;
+        spawnBurst((victim.x + attackerX) * 0.5, (victim.y + attackerY) * 0.5, fxColor, 16);
+        if (victim.hp <= 0) {
+          spawnBurst(victim.x, victim.y, victim.def.fxColor, 26);
+          victim.koTimer = 0.45;
+        }
+      }
+
+      function updateSim(dt) {
+        if (shakeTimer > 0) {
+          shakeTimer -= dt;
+          shakeX = Math.round((Math.random() - 0.5) * 2);
+          shakeY = Math.round((Math.random() - 0.5) * 2);
+        } else {
+          shakeX = 0;
+          shakeY = 0;
+        }
+
+        for (const f of fighters) {
+          if (f.flashTimer > 0) f.flashTimer -= dt;
+          if (f.koTimer > 0) {
+            f.koTimer -= dt;
+            if (f.koTimer <= 0) {
+              f.hp = 8;
+              f.x = 20 + Math.random() * (COLS - 40);
+              f.y = 18 + Math.random() * (HP_ROWS - 36);
+              f.vx = 0;
+              f.vy = 0;
+              spawnBurst(f.x, f.y, f.def.fxColor, 12);
+            }
+            continue;
+          }
+
+          f.aiTimer -= dt;
+          f.shotCooldown -= dt;
+          if (f.dashTimer > 0) f.dashTimer -= dt;
+
+          let tgt = fighters[f.target];
+          if (!tgt || tgt === f || tgt.koTimer > 0 || f.aiTimer <= 0) {
+            const alive = fighters.filter((o) => o !== f && o.koTimer <= 0);
+            if (alive.length > 0) {
+              tgt = alive[Math.floor(Math.random() * alive.length)];
+              f.target = tgt.idx;
+            }
+            f.aiTimer = 1.2 + Math.random() * 1.4;
+          }
+
+          if (tgt && tgt.koTimer <= 0) {
+            const dx = tgt.x - f.x;
+            const dy = tgt.y - f.y;
+            const dist = Math.hypot(dx, dy) || 1;
+            const nx = dx / dist;
+            const ny = dy / dist;
+
+            const strafeDir = f.idx % 2 === 0 ? 1 : -1;
+            const approach = dist > 32 ? 1.0 : dist < 18 ? -0.4 : 0.25;
+            f.vx += (nx * approach - ny * 0.55 * strafeDir) * 38 * dt;
+            f.vy += (ny * approach + nx * 0.55 * strafeDir) * 42 * dt;
+
+            if (f.dashTimer <= 0 && dist < 46 && Math.random() < 1.3 * dt) {
+              f.vx = nx * 54;
+              f.vy = ny * 58;
+              f.dashTimer = 1.1;
+              spawnTrail(f.x, f.y, f.def.fxColor, '░');
+            }
+
+            if (f.shotCooldown <= 0 && dist > 20) {
+              projectiles.push({
+                owner: f.idx,
+                x: f.x + nx * 12,
+                y: f.y + ny * 12,
+                vx: nx * 66,
+                vy: ny * 70,
+                ch: f.def.bolt,
+                color: f.def.fxColor,
+                life: 1.5,
+              });
+              f.shotCooldown = 0.75 + Math.random() * 0.85;
+            }
+          }
+
+          f.vx *= Math.pow(0.28, dt);
+          f.vy *= Math.pow(0.28, dt);
+          const spd = Math.hypot(f.vx, f.vy);
+          if (spd > 60) {
+            f.vx = (f.vx / spd) * 60;
+            f.vy = (f.vy / spd) * 60;
+          }
+
+          f.x += f.vx * dt;
+          f.y += f.vy * dt;
+
+          const marginX = 16;
+          const marginY = 15;
+          if (f.x < marginX) { f.x = marginX; f.vx = Math.abs(f.vx) * 0.8 + 8; }
+          if (f.x > COLS - marginX) { f.x = COLS - marginX; f.vx = -Math.abs(f.vx) * 0.8 - 8; }
+          if (f.y < marginY) { f.y = marginY; f.vy = Math.abs(f.vy) * 0.8 + 8; }
+          if (f.y > HP_ROWS - marginY) { f.y = HP_ROWS - marginY; f.vy = -Math.abs(f.vy) * 0.8 - 8; }
+        }
+
+        // Pairwise melee clashes & separation
+        for (let i = 0; i < fighters.length; i++) {
+          const a = fighters[i];
+          if (a.koTimer > 0) continue;
+          for (let j = i + 1; j < fighters.length; j++) {
+            const b = fighters[j];
+            if (b.koTimer > 0) continue;
+            const dx = b.x - a.x;
+            const dy = (b.y - a.y) * 0.9;
+            const dist = Math.hypot(dx, dy) || 0.1;
+            const minDist = 19.0;
+            if (dist < minDist) {
+              const nx = dx / dist;
+              const ny = dy / dist;
+              const overlap = minDist - dist;
+              a.x -= nx * overlap * 0.5;
+              a.y -= ny * overlap * 0.5;
+              b.x += nx * overlap * 0.5;
+              b.y += ny * overlap * 0.5;
+
+              if (a.flashTimer <= 0 && b.flashTimer <= 0) {
+                const relSpd = Math.hypot(a.vx - b.vx, a.vy - b.vy);
+                if (relSpd > 18 || a.dashTimer > 0.6 || b.dashTimer > 0.6) {
+                  applyHit(b, a.x, a.y, a.def.fxColor);
+                  applyHit(a, b.x, b.y, b.def.fxColor);
+                } else {
+                  a.vx -= nx * 12;
+                  a.vy -= ny * 12;
+                  b.vx += nx * 12;
+                  b.vy += ny * 12;
+                }
+              }
+            }
+          }
+        }
+
+        // Projectiles
+        for (let i = projectiles.length - 1; i >= 0; i--) {
+          const p = projectiles[i];
+          p.life -= dt;
+          p.x += p.vx * dt;
+          p.y += p.vy * dt;
+
+          if (Math.random() < 0.65) {
+            spawnTrail(p.x, p.y, p.color, '.');
+          }
+
+          let hit = false;
+          for (const f of fighters) {
+            if (f.idx === p.owner || f.koTimer > 0) continue;
+            if (Math.abs(p.x - f.x) < 10.5 && Math.abs(p.y - f.y) < 10.5) {
+              applyHit(f, p.x, p.y, p.color);
+              hit = true;
+              break;
+            }
+          }
+
+          if (hit || p.life <= 0 || p.x < 0 || p.x >= COLS || p.y < 0 || p.y >= HP_ROWS) {
+            projectiles.splice(i, 1);
+          }
+        }
+
+        // Particles
+        for (let i = particles.length - 1; i >= 0; i--) {
+          const pt = particles[i];
+          pt.life -= dt;
+          pt.x += pt.vx * dt;
+          pt.y += pt.vy * dt;
+          pt.vx *= Math.pow(0.15, dt);
+          pt.vy *= Math.pow(0.15, dt);
+          if (pt.life <= 0) {
+            particles.splice(i, 1);
+          }
+        }
+      }
+
+      // =====================================================================
+      // Half-Pixel Framebuffer Rendering + Dirty-Row DOM Commit
+      // =====================================================================
+      const arenaEl = document.getElementById('arena');
+      const rowEls = new Array(ROWS);
+      const prevRowHtml = new Array(ROWS).fill('');
+      const hpBuf = new Array(COLS * HP_ROWS).fill(null);
+      const fxBuf = new Array(COLS * ROWS).fill(null);
+
+      function initRows() {
+        arenaEl.innerHTML = '';
+        for (let y = 0; y < ROWS; y++) {
+          const div = document.createElement('div');
+          div.className = 'r';
+          arenaEl.appendChild(div);
+          rowEls[y] = div;
+        }
+      }
+
+      function escapeHtml(ch) {
+        if (ch === '&') return '&amp;';
+        if (ch === '<') return '&lt;';
+        if (ch === '>') return '&gt;';
+        return ch;
+      }
+
+      function render() {
+        hpBuf.fill(null);
+        fxBuf.fill(null);
+
+        for (const f of fighters) {
+          if (f.koTimer > 0) continue;
+          const spr = sprites[f.idx];
+          const x0 = Math.round(f.x - SPR_W * 0.5) + shakeX;
+          const y0 = Math.round(f.y - SPR_H_HP * 0.5) + shakeY;
+          const flash = f.flashTimer > 0;
+
+          for (let sy = 0; sy < SPR_H_HP; sy++) {
+            const ay = y0 + sy;
+            if (ay < 0 || ay >= HP_ROWS) continue;
+            for (let sx = 0; sx < SPR_W; sx++) {
+              const sIdx = sy * SPR_W + sx;
+              if (!spr.mask[sIdx]) continue;
+              const ax = x0 + sx;
+              if (ax < 0 || ax >= COLS) continue;
+              const base = spr.colors[sIdx];
+              const rgb = flash
+                ? [
+                    base[0] + (255 - base[0]) * 0.85,
+                    base[1] + (255 - base[1]) * 0.85,
+                    base[2] + (255 - base[2]) * 0.85,
+                  ]
+                : base;
+              hpBuf[ay * COLS + ax] = rgbToHex(rgb[0], rgb[1], rgb[2]);
+            }
+          }
+        }
+
+        for (const pt of particles) {
+          const cx = Math.round(pt.x) + shakeX;
+          const cy = Math.round(pt.y * 0.5) + shakeY;
+          if (cx < 0 || cx >= COLS || cy < 0 || cy >= ROWS) continue;
+          fxBuf[cy * COLS + cx] = {
+            ch: pt.ch,
+            fg: pt.color,
+            bold: pt.life > pt.maxLife * 0.45,
+          };
+        }
+
+        for (const p of projectiles) {
+          const cx = Math.round(p.x) + shakeX;
+          const cy = Math.round(p.y * 0.5) + shakeY;
+          if (cx < 0 || cx >= COLS || cy < 0 || cy >= ROWS) continue;
+          fxBuf[cy * COLS + cx] = {
+            ch: p.ch,
+            fg: p.color,
+            bold: true,
+          };
+        }
+
+        for (let r = 0; r < ROWS; r++) {
+          let html = '';
+          let run = '';
+          let prevFg = null;
+          let prevBg = null;
+          let prevBold = false;
+
+          const flush = () => {
+            if (!run) return;
+            if (prevFg === null && prevBg === null) {
+              html += run;
+            } else {
+              const cls = prevBold ? ' class="b"' : '';
+              const st = [];
+              if (prevFg) st.push(`color:${prevFg}`);
+              if (prevBg) st.push(`background:${prevBg}`);
+              html += `<span${cls} style="${st.join(';')}">${run}</span>`;
+            }
+            run = '';
+          };
+
+          const topOff = r * 2 * COLS;
+          const botOff = (r * 2 + 1) * COLS;
+          const fxOff = r * COLS;
+
+          for (let c = 0; c < COLS; c++) {
+            const topCol = hpBuf[topOff + c];
+            const botCol = hpBuf[botOff + c];
+            const fx = fxBuf[fxOff + c];
+
+            let ch = ' ';
+            let fg = null;
+            let bg = null;
+            let bold = false;
+
+            if (topCol && botCol) {
+              if (topCol === botCol) {
+                ch = '█';
+                fg = topCol;
+              } else {
+                ch = '▀';
+                fg = topCol;
+                bg = botCol;
+              }
+            } else if (topCol) {
+              ch = '▀';
+              fg = topCol;
+            } else if (botCol) {
+              ch = '▄';
+              fg = botCol;
+            } else if (fx) {
+              ch = fx.ch;
+              fg = fx.fg;
+              bold = fx.bold;
+            }
+
+            const escCh = escapeHtml(ch);
+            if (run && fg === prevFg && bg === prevBg && bold === prevBold) {
+              run += escCh;
+            } else {
+              flush();
+              prevFg = fg;
+              prevBg = bg;
+              prevBold = bold;
+              run = escCh;
+            }
+          }
+          flush();
+
+          if (html !== prevRowHtml[r]) {
+            rowEls[r].innerHTML = html;
+            prevRowHtml[r] = html;
+          }
+        }
+      }
+
+      window.addEventListener('resize', () => {
+        const nextAspect = measureCellAspect();
+        if (Math.abs(nextAspect - cellAspect) > 0.02) {
+          cellAspect = nextAspect;
+          sprites = FIGHTERS_DEF.map((def) => bakeSprite(def, cellAspect));
+        }
+      });
+
+      initRows();
+      let lastTs = 0;
+      function loop(ts) {
+        if (!lastTs) lastTs = ts;
+        const elapsed = ts - lastTs;
+        if (elapsed >= 32) {
+          const dt = Math.min(0.06, elapsed / 1000);
+          lastTs = ts;
+          updateSim(dt);
+          render();
+        }
+        requestAnimationFrame(loop);
+      }
+      render();
+      requestAnimationFrame(loop);
+    })();
+  </script>
+</body>
+</html>

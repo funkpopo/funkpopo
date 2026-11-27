@@ -1,0 +1,649 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 380" width="960" height="380" role="img" aria-label="5-Way AI Icons TUI Battle">
+  <style><![CDATA[
+    text {
+      font-family: 'JetBrains Mono', 'Cascadia Code', 'Fira Code', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      font-size: 9.8px;
+      font-variant-ligatures: none;
+    }
+    .fx {
+      font-size: 16px;
+      font-weight: 700;
+      text-anchor: middle;
+      dominant-baseline: central;
+    }
+    .fighter {
+      will-change: transform, filter;
+    }
+
+    /* Antigravity: top-left striker diving at Grok and DeepSeek */
+    #f-antigravity {
+      animation: move-ag 10s linear infinite;
+    }
+    @keyframes move-ag {
+      0%, 100% { transform: translate(175px, 105px); filter: brightness(1); }
+      16%      { transform: translate(330px, 125px); filter: brightness(1); }
+      22%      { transform: translate(405px, 145px) scale(1.06); filter: brightness(2.4); }
+      32%      { transform: translate(250px, 195px); filter: brightness(1); }
+      48%      { transform: translate(325px, 240px); filter: brightness(2.3); }
+      58%      { transform: translate(210px, 185px); filter: brightness(1); }
+      74%      { transform: translate(480px, 125px); filter: brightness(1); }
+      80%      { transform: translate(555px, 165px); filter: brightness(2.4); }
+      90%      { transform: translate(290px, 110px); filter: brightness(1); }
+    }
+
+    /* Grok Build: top-center interceptor clashing with Antigravity and Claude Code */
+    #f-grok {
+      animation: move-grok 10s linear infinite;
+    }
+    @keyframes move-grok {
+      0%, 100% { transform: translate(480px, 95px); filter: brightness(1); }
+      16%      { transform: translate(450px, 135px); filter: brightness(1); }
+      22%      { transform: translate(435px, 145px) scale(1.06); filter: brightness(2.4); }
+      34%      { transform: translate(575px, 115px); filter: brightness(1); }
+      52%      { transform: translate(675px, 145px); filter: brightness(2.3); }
+      64%      { transform: translate(525px, 210px); filter: brightness(1); }
+      76%      { transform: translate(520px, 170px); filter: brightness(1); }
+      80%      { transform: translate(585px, 165px); filter: brightness(2.4); }
+      90%      { transform: translate(495px, 100px); filter: brightness(1); }
+    }
+
+    /* Claude Code: top-right brawler tangling with Grok and Codex */
+    #f-claudecode {
+      animation: move-cc 10s linear infinite;
+    }
+    @keyframes move-cc {
+      0%, 100% { transform: translate(785px, 105px); filter: brightness(1); }
+      20%      { transform: translate(735px, 185px); filter: brightness(1); }
+      36%      { transform: translate(685px, 225px); filter: brightness(2.4); }
+      48%      { transform: translate(720px, 150px); filter: brightness(1); }
+      52%      { transform: translate(705px, 145px) scale(1.06); filter: brightness(2.4); }
+      64%      { transform: translate(795px, 130px); filter: brightness(1); }
+      78%      { transform: translate(670px, 115px); filter: brightness(1); }
+      90%      { transform: translate(765px, 155px); filter: brightness(1); }
+    }
+
+    /* DeepSeek: bottom-left whale dashing against Antigravity and Codex */
+    #f-deepseek {
+      animation: move-ds 10s linear infinite;
+    }
+    @keyframes move-ds {
+      0%, 100% { transform: translate(295px, 275px); filter: brightness(1); }
+      20%      { transform: translate(410px, 270px); filter: brightness(1); }
+      36%      { transform: translate(470px, 255px); filter: brightness(2.4); }
+      46%      { transform: translate(355px, 245px); filter: brightness(1); }
+      48%      { transform: translate(355px, 240px) scale(1.06); filter: brightness(2.4); }
+      60%      { transform: translate(235px, 250px); filter: brightness(1); }
+      76%      { transform: translate(375px, 285px); filter: brightness(1); }
+      90%      { transform: translate(310px, 280px); filter: brightness(1); }
+    }
+
+    /* Codex: bottom-right cloud flanker clashing with DeepSeek and Claude Code */
+    #f-codex {
+      animation: move-codex 10s linear infinite;
+    }
+    @keyframes move-codex {
+      0%, 100% { transform: translate(665px, 275px); filter: brightness(1); }
+      20%      { transform: translate(560px, 260px); filter: brightness(1); }
+      36%      { transform: translate(500px, 255px) scale(1.06); filter: brightness(2.4); }
+      50%      { transform: translate(650px, 245px); filter: brightness(1); }
+      66%      { transform: translate(720px, 225px); filter: brightness(2.4); }
+      76%      { transform: translate(610px, 265px); filter: brightness(1); }
+      90%      { transform: translate(650px, 275px); filter: brightness(1); }
+    }
+
+    /* TUI ASCII Projectiles */
+    .bolt-1 { animation: bolt1 10s linear infinite; opacity: 0; }
+    @keyframes bolt1 {
+      0%, 6%   { opacity: 0; transform: translate(210px, 110px); }
+      8%       { opacity: 1; transform: translate(265px, 110px); }
+      14%      { opacity: 1; transform: translate(420px, 105px); }
+      16%, 100%{ opacity: 0; transform: translate(450px, 105px); }
+    }
+
+    .bolt-2 { animation: bolt2 10s linear infinite; opacity: 0; }
+    @keyframes bolt2 {
+      0%, 40%  { opacity: 0; transform: translate(745px, 130px); }
+      42%      { opacity: 1; transform: translate(650px, 155px); }
+      48%      { opacity: 1; transform: translate(500px, 185px); }
+      50%, 100%{ opacity: 0; transform: translate(470px, 195px); }
+    }
+
+    .bolt-3 { animation: bolt3 10s linear infinite; opacity: 0; }
+    @keyframes bolt3 {
+      0%, 58%  { opacity: 0; transform: translate(260px, 250px); }
+      60%      { opacity: 1; transform: translate(390px, 245px); }
+      66%      { opacity: 1; transform: translate(640px, 230px); }
+      68%, 100%{ opacity: 0; transform: translate(680px, 225px); }
+    }
+
+    .bolt-4 { animation: bolt4 10s linear infinite; opacity: 0; }
+    @keyframes bolt4 {
+      0%, 78%  { opacity: 0; transform: translate(630px, 265px); }
+      80%      { opacity: 1; transform: translate(510px, 270px); }
+      86%      { opacity: 1; transform: translate(365px, 280px); }
+      88%, 100%{ opacity: 0; transform: translate(335px, 280px); }
+    }
+
+    /* Clash Spark Bursts */
+    .spark-1 { animation: spk1 10s linear infinite; opacity: 0; }
+    @keyframes spk1 {
+      0%, 20%  { opacity: 0; transform: translate(420px, 145px) scale(0.5); }
+      22%      { opacity: 1; transform: translate(420px, 145px) scale(1.25); }
+      27%, 100%{ opacity: 0; transform: translate(420px, 145px) scale(1.55); }
+    }
+
+    .spark-2 { animation: spk2 10s linear infinite; opacity: 0; }
+    @keyframes spk2 {
+      0%, 34%  { opacity: 0; transform: translate(485px, 255px) scale(0.5); }
+      36%      { opacity: 1; transform: translate(485px, 255px) scale(1.25); }
+      41%, 100%{ opacity: 0; transform: translate(485px, 255px) scale(1.55); }
+    }
+
+    .spark-3 { animation: spk3 10s linear infinite; opacity: 0; }
+    @keyframes spk3 {
+      0%, 46%  { opacity: 0; transform: translate(340px, 240px) scale(0.5); }
+      48%      { opacity: 1; transform: translate(340px, 240px) scale(1.25); }
+      53%, 100%{ opacity: 0; transform: translate(340px, 240px) scale(1.55); }
+    }
+
+    .spark-4 { animation: spk4 10s linear infinite; opacity: 0; }
+    @keyframes spk4 {
+      0%, 50%  { opacity: 0; transform: translate(690px, 145px) scale(0.5); }
+      52%      { opacity: 1; transform: translate(690px, 145px) scale(1.25); }
+      57%, 100%{ opacity: 0; transform: translate(690px, 145px) scale(1.55); }
+    }
+
+    .spark-5 { animation: spk5 10s linear infinite; opacity: 0; }
+    @keyframes spk5 {
+      0%, 78%  { opacity: 0; transform: translate(570px, 165px) scale(0.5); }
+      80%      { opacity: 1; transform: translate(570px, 165px) scale(1.25); }
+      85%, 100%{ opacity: 0; transform: translate(570px, 165px) scale(1.55); }
+    }
+  ]]></style>
+
+  <!-- 5 Equally-Scaled TUI Icon Fighters -->
+  <g class="fighter" id="f-antigravity">
+    <g class="sprite">
+      <text x="-10.8" y="-45.3" fill="#e0b90f" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="-5.4" y="-45.3" fill="#cfb816" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="0.0" y="-45.3" fill="#c2b61c" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="5.4" y="-45.3" fill="#abb424" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="-21.6" y="-36.5" fill="#fbbc05" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="-16.2" y="-36.5" fill="#eebb0a" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-10.8" y="-36.5" fill="#dcb911" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-5.4" y="-36.5" fill="#cab718" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="0.0" y="-36.5" fill="#b9b51f" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="5.4" y="-36.5" fill="#a7b426" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="10.8" y="-36.5" fill="#95b22d" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="16.2" y="-36.5" fill="#7fb036" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="-21.6" y="-27.7" fill="#f7bc07" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-16.2" y="-27.7" fill="#e5ba0e" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-10.8" y="-27.7" fill="#d3b815" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-5.4" y="-27.7" fill="#c2b61c" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="0.0" y="-27.7" fill="#b0b422" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="5.4" y="-27.7" fill="#9eb329" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="10.8" y="-27.7" fill="#8cb130" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="16.2" y="-27.7" fill="#7baf37" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-27.0" y="-18.9" fill="#fbb906" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-21.6" y="-18.9" fill="#eebb0a" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-16.2" y="-18.9" fill="#dcb911" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-10.8" y="-18.9" fill="#cab718" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-5.4" y="-18.9" fill="#b9b51f" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="0.0" y="-18.9" fill="#a7b426" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="5.4" y="-18.9" fill="#95b22d" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="10.8" y="-18.9" fill="#84b034" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="16.2" y="-18.9" fill="#72ae3b" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="21.6" y="-18.9" fill="#60ac42" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-27.0" y="-10.1" fill="#f7bc07" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-21.6" y="-10.1" fill="#e5ba0e" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-16.2" y="-10.1" fill="#d3b815" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-10.8" y="-10.1" fill="#c2b61c" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-5.4" y="-10.1" fill="#b0b422" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="0.0" y="-10.1" fill="#9eb329" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="5.4" y="-10.1" fill="#8cb130" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="10.8" y="-10.1" fill="#7baf37" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="16.2" y="-10.1" fill="#69ad3e" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="21.6" y="-10.1" fill="#57ac45" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-32.4" y="-1.3" fill="#fbb906" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-27.0" y="-1.3" fill="#eebb0a" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-21.6" y="-1.3" fill="#dcb911" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-16.2" y="-1.3" fill="#cab718" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-10.8" y="-1.3" fill="#b9b51f" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-5.4" y="-1.3" fill="#a7b426" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="0.0" y="-1.3" fill="#95b22d" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="5.4" y="-1.3" fill="#84b034" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="10.8" y="-1.3" fill="#72ae3b" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="16.2" y="-1.3" fill="#60ac42" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="21.6" y="-1.3" fill="#4fab49" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="27.0" y="-1.3" fill="#3da950" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-32.4" y="7.5" fill="#f7bc07" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-27.0" y="7.5" fill="#e5ba0e" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-21.6" y="7.5" fill="#d3b815" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-16.2" y="7.5" fill="#c2b61c" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-10.8" y="7.5" fill="#b0b422" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="-5.4" y="7.5" fill="#9eb329" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="0.0" y="7.5" fill="#8cb130" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="5.4" y="7.5" fill="#7baf37" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="10.8" y="7.5" fill="#69ad3e" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="16.2" y="7.5" fill="#57ac45" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="21.6" y="7.5" fill="#46aa4c" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="27.0" y="7.5" fill="#34a853" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-37.8" y="16.3" fill="#fbb906" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-32.4" y="16.3" fill="#eebb0a" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-27.0" y="16.3" fill="#dcb911" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-21.6" y="16.3" fill="#cab718" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="16.2" y="16.3" fill="#4fab49" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="21.6" y="16.3" fill="#3da950" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="27.0" y="16.3" fill="#35a65a" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="32.4" y="16.3" fill="#36a368" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-37.8" y="25.1" fill="#f7bc07" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-32.4" y="25.1" fill="#e5ba0e" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-27.0" y="25.1" fill="#d3b815" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="21.6" y="25.1" fill="#34a853" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="27.0" y="25.1" fill="#35a561" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="32.4" y="25.1" fill="#36a270" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-43.2" y="33.9" fill="#fbb906" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-37.8" y="33.9" fill="#eebb0a" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-32.4" y="33.9" fill="#dcb911" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="27.0" y="33.9" fill="#36a368" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="32.4" y="33.9" fill="#37a077" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="37.8" y="33.9" fill="#389d85" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-54.0" y="42.7" fill="#f9ac0b" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="-48.6" y="42.7" fill="#fab408" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-43.2" y="42.7" fill="#f7bc07" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-37.8" y="42.7" fill="#e5ba0e" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="32.4" y="42.7" fill="#389f7e" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="37.8" y="42.7" fill="#399c8c" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="43.2" y="42.7" fill="#3a989b" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="48.6" y="42.7" fill="#3c95ac" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="-54.0" y="51.5" fill="#f9af0a" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-48.6" y="51.5" fill="#fbb906" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="43.2" y="51.5" fill="#3b97a2" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="48.6" y="51.5" fill="#3c94b0" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+    </g>
+  </g>
+  <g class="fighter" id="f-grok">
+    <g class="sprite">
+      <text x="-16.2" y="-36.5" fill="#8796ac" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="-10.8" y="-36.5" fill="#8a99ae" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="-5.4" y="-36.5" fill="#8d9cb1" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="0.0" y="-36.5" fill="#8f9eb4" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="5.4" y="-36.5" fill="#92a1b6" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="10.8" y="-36.5" fill="#95a4b9" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="37.8" y="-36.5" fill="#a6b3c5" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="43.2" y="-36.5" fill="#a8b5c7" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="-27.0" y="-27.7" fill="#8392a8" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="-21.6" y="-27.7" fill="#8594aa" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-16.2" y="-27.7" fill="#8897ac" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-10.8" y="-27.7" fill="#8a9aaf" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-5.4" y="-27.7" fill="#8d9cb2" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="0.0" y="-27.7" fill="#909fb4" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="5.4" y="-27.7" fill="#93a2b7" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="10.8" y="-27.7" fill="#96a5ba" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="16.2" y="-27.7" fill="#99a8bc" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="32.4" y="-27.7" fill="#a3b1c3" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="37.8" y="-27.7" fill="#a6b4c6" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-32.4" y="-18.9" fill="#8090a6" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-27.0" y="-18.9" fill="#8393a8" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-21.6" y="-18.9" fill="#8695ab" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="21.6" y="-18.9" fill="#9fadc0" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="27.0" y="-18.9" fill="#a1afc2" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="32.4" y="-18.9" fill="#a5b2c4" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="37.8" y="-18.9" fill="#a8b5c7" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-37.8" y="-10.1" fill="#7f8ea4" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-32.4" y="-10.1" fill="#8291a7" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-27.0" y="-10.1" fill="#8594aa" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="10.8" y="-10.1" fill="#9aa9bd" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="16.2" y="-10.1" fill="#9dabbe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="21.6" y="-10.1" fill="#a0aec1" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="27.0" y="-10.1" fill="#a3b1c3" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="32.4" y="-10.1" fill="#a6b4c6" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="37.8" y="-10.1" fill="#aab7c8" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-37.8" y="-1.3" fill="#8090a6" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-32.4" y="-1.3" fill="#8393a8" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="5.4" y="-1.3" fill="#98a7bb" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="10.8" y="-1.3" fill="#9ba9bd" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="32.4" y="-1.3" fill="#a8b5c7" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="37.8" y="-1.3" fill="#abb8c9" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-37.8" y="7.5" fill="#8291a7" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-32.4" y="7.5" fill="#8594aa" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-5.4" y="7.5" fill="#94a3b8" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="0.0" y="7.5" fill="#96a5ba" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="32.4" y="7.5" fill="#aab7c8" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="37.8" y="7.5" fill="#adbacb" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-37.8" y="16.3" fill="#8393a8" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-32.4" y="16.3" fill="#8695ab" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="27.0" y="16.3" fill="#a8b5c7" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="32.4" y="16.3" fill="#abb8c9" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="37.8" y="16.3" fill="#aebbcc" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="-37.8" y="25.1" fill="#8594aa" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-32.4" y="25.1" fill="#8897ac" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-27.0" y="25.1" fill="#8a9aaf" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="21.6" y="25.1" fill="#a7b4c6" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="27.0" y="25.1" fill="#aab7c8" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="32.4" y="25.1" fill="#adbacb" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-37.8" y="33.9" fill="#8695ab" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-32.4" y="33.9" fill="#8998ae" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="-21.6" y="33.9" fill="#8f9eb4" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="-16.2" y="33.9" fill="#92a1b6" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="-10.8" y="33.9" fill="#95a4b9" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="-5.4" y="33.9" fill="#98a7bb" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="0.0" y="33.9" fill="#9caabe" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="5.4" y="33.9" fill="#9fadc0" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="10.8" y="33.9" fill="#a1afc2" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="16.2" y="33.9" fill="#a5b2c4" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="21.6" y="33.9" fill="#a8b5c7" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="27.0" y="33.9" fill="#abb8c9" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="-43.2" y="42.7" fill="#8594aa" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="-16.2" y="42.7" fill="#93a2b7" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="-10.8" y="42.7" fill="#96a5ba" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="-5.4" y="42.7" fill="#99a8bc" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="0.0" y="42.7" fill="#9dabbe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="5.4" y="42.7" fill="#a0aec1" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="10.8" y="42.7" fill="#a3b1c3" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="16.2" y="42.7" fill="#a6b4c6" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+    </g>
+  </g>
+  <g class="fighter" id="f-claudecode">
+    <g class="sprite">
+      <text x="-43.2" y="-27.7" fill="#dd7c5c" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-37.8" y="-27.7" fill="#de7d5d" textLength="11.2" lengthAdjust="spacingAndGlyphs">██</text>
+      <text x="-27.0" y="-27.7" fill="#df7e5e" textLength="11.2" lengthAdjust="spacingAndGlyphs">██</text>
+      <text x="-16.2" y="-27.7" fill="#e07f5f" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-10.8" y="-27.7" fill="#e08060" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-5.4" y="-27.7" fill="#e18060" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="0.0" y="-27.7" fill="#e18161" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="5.4" y="-27.7" fill="#e28262" textLength="11.2" lengthAdjust="spacingAndGlyphs">██</text>
+      <text x="16.2" y="-27.7" fill="#e38363" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="21.6" y="-27.7" fill="#e38464" textLength="11.2" lengthAdjust="spacingAndGlyphs">██</text>
+      <text x="32.4" y="-27.7" fill="#e48565" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="37.8" y="-27.7" fill="#e48666" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-43.2" y="-18.9" fill="#dd7c5c" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-37.8" y="-18.9" fill="#de7d5d" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-32.4" y="-18.9" fill="#de7e5e" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-27.0" y="-18.9" fill="#df7e5e" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-21.6" y="-18.9" fill="#df7f5f" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-16.2" y="-18.9" fill="#e07f5f" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-10.8" y="-18.9" fill="#e08060" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-5.4" y="-18.9" fill="#e18161" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="0.0" y="-18.9" fill="#e28161" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="5.4" y="-18.9" fill="#e28262" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="10.8" y="-18.9" fill="#e28363" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="16.2" y="-18.9" fill="#e38363" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="21.6" y="-18.9" fill="#e38464" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="27.0" y="-18.9" fill="#e38565" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="32.4" y="-18.9" fill="#e48565" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="37.8" y="-18.9" fill="#e48666" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-43.2" y="-10.1" fill="#de7d5d" textLength="11.2" lengthAdjust="spacingAndGlyphs">██</text>
+      <text x="-32.4" y="-10.1" fill="#df7e5e" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-21.6" y="-10.1" fill="#e07f5f" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-16.2" y="-10.1" fill="#e08060" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-10.8" y="-10.1" fill="#e18060" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-5.4" y="-10.1" fill="#e18161" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="0.0" y="-10.1" fill="#e28262" textLength="11.2" lengthAdjust="spacingAndGlyphs">██</text>
+      <text x="10.8" y="-10.1" fill="#e38363" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="16.2" y="-10.1" fill="#e38464" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="27.0" y="-10.1" fill="#e48565" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="32.4" y="-10.1" fill="#e48666" textLength="11.2" lengthAdjust="spacingAndGlyphs">██</text>
+      <text x="-54.0" y="-1.3" fill="#dd7c5c" textLength="11.2" lengthAdjust="spacingAndGlyphs">██</text>
+      <text x="-43.2" y="-1.3" fill="#de7d5d" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-37.8" y="-1.3" fill="#de7e5e" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-32.4" y="-1.3" fill="#df7e5e" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-27.0" y="-1.3" fill="#df7f5f" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-21.6" y="-1.3" fill="#e07f5f" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-16.2" y="-1.3" fill="#e08060" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-10.8" y="-1.3" fill="#e18161" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-5.4" y="-1.3" fill="#e28161" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="0.0" y="-1.3" fill="#e28262" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="5.4" y="-1.3" fill="#e28363" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="10.8" y="-1.3" fill="#e38363" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="16.2" y="-1.3" fill="#e38464" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="21.6" y="-1.3" fill="#e38565" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="27.0" y="-1.3" fill="#e48565" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="32.4" y="-1.3" fill="#e48666" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="37.8" y="-1.3" fill="#e58767" textLength="11.2" lengthAdjust="spacingAndGlyphs">██</text>
+      <text x="48.6" y="-1.3" fill="#e58868" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-54.0" y="7.5" fill="#dd7c5c" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-48.6" y="7.5" fill="#de7d5d" textLength="11.2" lengthAdjust="spacingAndGlyphs">██</text>
+      <text x="-37.8" y="7.5" fill="#df7e5e" textLength="11.2" lengthAdjust="spacingAndGlyphs">██</text>
+      <text x="-27.0" y="7.5" fill="#e07f5f" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-21.6" y="7.5" fill="#e08060" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-16.2" y="7.5" fill="#e18060" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-10.8" y="7.5" fill="#e18161" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-5.4" y="7.5" fill="#e28262" textLength="11.2" lengthAdjust="spacingAndGlyphs">██</text>
+      <text x="5.4" y="7.5" fill="#e38363" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="10.8" y="7.5" fill="#e38464" textLength="11.2" lengthAdjust="spacingAndGlyphs">██</text>
+      <text x="21.6" y="7.5" fill="#e48565" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="27.0" y="7.5" fill="#e48666" textLength="11.2" lengthAdjust="spacingAndGlyphs">██</text>
+      <text x="37.8" y="7.5" fill="#e58767" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="43.2" y="7.5" fill="#e58868" textLength="11.2" lengthAdjust="spacingAndGlyphs">██</text>
+      <text x="-43.2" y="16.3" fill="#de7e5e" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-37.8" y="16.3" fill="#df7e5e" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-32.4" y="16.3" fill="#df7f5f" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-27.0" y="16.3" fill="#e07f5f" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-21.6" y="16.3" fill="#e08060" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-16.2" y="16.3" fill="#e18161" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-10.8" y="16.3" fill="#e28161" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-5.4" y="16.3" fill="#e28262" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="0.0" y="16.3" fill="#e28363" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="5.4" y="16.3" fill="#e38363" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="10.8" y="16.3" fill="#e38464" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="16.2" y="16.3" fill="#e38565" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="21.6" y="16.3" fill="#e48565" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="27.0" y="16.3" fill="#e48666" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="32.4" y="16.3" fill="#e58767" textLength="11.2" lengthAdjust="spacingAndGlyphs">██</text>
+      <text x="-43.2" y="25.1" fill="#df7e5e" textLength="11.2" lengthAdjust="spacingAndGlyphs">▀█</text>
+      <text x="-32.4" y="25.1" fill="#e07f5f" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-27.0" y="25.1" fill="#e08060" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="-21.6" y="25.1" fill="#e18060" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-16.2" y="25.1" fill="#e18161" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-10.8" y="25.1" fill="#e28262" textLength="11.2" lengthAdjust="spacingAndGlyphs">▀▀</text>
+      <text x="0.0" y="25.1" fill="#e38363" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="5.4" y="25.1" fill="#e38464" textLength="11.2" lengthAdjust="spacingAndGlyphs">▀█</text>
+      <text x="16.2" y="25.1" fill="#e48565" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="21.6" y="25.1" fill="#e48666" textLength="11.2" lengthAdjust="spacingAndGlyphs">▀█</text>
+      <text x="32.4" y="25.1" fill="#e58767" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="37.8" y="25.1" fill="#e58868" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="-37.8" y="33.9" fill="#df7f5f" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="-32.4" y="33.9" fill="#e07f5f" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-21.6" y="33.9" fill="#e18161" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-16.2" y="33.9" fill="#e28161" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="10.8" y="33.9" fill="#e38565" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="16.2" y="33.9" fill="#e48565" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="27.0" y="33.9" fill="#e58767" textLength="11.2" lengthAdjust="spacingAndGlyphs">█▀</text>
+    </g>
+  </g>
+  <g class="fighter" id="f-codex">
+    <g class="sprite">
+      <text x="-10.8" y="-54.1" fill="#ada6ff" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="-27.0" y="-45.3" fill="#a5a5ff" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="-21.6" y="-45.3" fill="#a9a6ff" textLength="27.4" lengthAdjust="spacingAndGlyphs">█████</text>
+      <text x="5.4" y="-45.3" fill="#a5a5ff" textLength="22.0" lengthAdjust="spacingAndGlyphs">▄▄▄▄</text>
+      <text x="-32.4" y="-36.5" fill="#a1a4ff" textLength="70.6" lengthAdjust="spacingAndGlyphs">█████████████</text>
+      <text x="37.8" y="-36.5" fill="#9da3ff" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="-43.2" y="-27.7" fill="#94a2ff" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="-37.8" y="-27.7" fill="#99a3ff" textLength="81.4" lengthAdjust="spacingAndGlyphs">███████████████</text>
+      <text x="43.2" y="-27.7" fill="#94a2ff" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="-54.0" y="-18.9" fill="#8ca0ff" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="-48.6" y="-18.9" fill="#90a1ff" textLength="97.6" lengthAdjust="spacingAndGlyphs">██████████████████</text>
+      <text x="-54.0" y="-10.1" fill="#88a0ff" textLength="27.4" lengthAdjust="spacingAndGlyphs">█████</text>
+      <text x="-21.6" y="-10.1" fill="#88a0ff" textLength="70.6" lengthAdjust="spacingAndGlyphs">▀████████████</text>
+      <text x="-54.0" y="-1.3" fill="#809eff" textLength="27.4" lengthAdjust="spacingAndGlyphs">█████</text>
+      <text x="-27.0" y="-1.3" fill="#7c9dff" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="-16.2" y="-1.3" fill="#809eff" textLength="70.6" lengthAdjust="spacingAndGlyphs">▀████████████</text>
+      <text x="-54.0" y="7.5" fill="#789aff" textLength="32.8" lengthAdjust="spacingAndGlyphs">██████</text>
+      <text x="-16.2" y="7.5" fill="#7393ff" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="-10.8" y="7.5" fill="#789aff" textLength="65.2" lengthAdjust="spacingAndGlyphs">████████████</text>
+      <text x="-48.6" y="16.3" fill="#6e8cff" textLength="22.0" lengthAdjust="spacingAndGlyphs">████</text>
+      <text x="-21.6" y="16.3" fill="#6985ff" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="-16.2" y="16.3" fill="#6e8cff" textLength="70.6" lengthAdjust="spacingAndGlyphs">███▀▀▀▀▀█████</text>
+      <text x="-48.6" y="25.1" fill="#647eff" textLength="103.0" lengthAdjust="spacingAndGlyphs">██████████████████▀</text>
+      <text x="-48.6" y="33.9" fill="#5b71ff" textLength="92.2" lengthAdjust="spacingAndGlyphs">▀███████████████▀</text>
+      <text x="-43.2" y="42.7" fill="#5163ff" textLength="76.0" lengthAdjust="spacingAndGlyphs">▀█████████████</text>
+      <text x="-27.0" y="51.5" fill="#4755ff" textLength="54.4" lengthAdjust="spacingAndGlyphs">▀▀▀▀█████▀</text>
+      <text x="5.4" y="60.3" fill="#3e48ff" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+    </g>
+  </g>
+  <g class="fighter" id="f-deepseek">
+    <g class="sprite">
+      <text x="-5.4" y="-36.5" fill="#4a69fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="-43.2" y="-27.7" fill="#4362ff" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="-37.8" y="-27.7" fill="#4463fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-32.4" y="-27.7" fill="#4564fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-27.0" y="-27.7" fill="#4665fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-21.6" y="-27.7" fill="#4766fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-16.2" y="-27.7" fill="#4867fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-10.8" y="-27.7" fill="#4968fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-5.4" y="-27.7" fill="#4a69fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="16.2" y="-27.7" fill="#516ffe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="21.6" y="-27.7" fill="#5371fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="27.0" y="-27.7" fill="#5674fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="43.2" y="-27.7" fill="#5d7afe" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="48.6" y="-27.7" fill="#5f7dfe" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="-48.6" y="-18.9" fill="#4262ff" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-43.2" y="-18.9" fill="#4463ff" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-37.8" y="-18.9" fill="#4564fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-32.4" y="-18.9" fill="#4664fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-27.0" y="-18.9" fill="#4765fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-21.6" y="-18.9" fill="#4866fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-16.2" y="-18.9" fill="#4967fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-10.8" y="-18.9" fill="#4a68fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-5.4" y="-18.9" fill="#4b69fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="0.0" y="-18.9" fill="#4c6afe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="5.4" y="-18.9" fill="#4e6cfe" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="21.6" y="-18.9" fill="#5472fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="27.0" y="-18.9" fill="#5774fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="32.4" y="-18.9" fill="#5977fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="37.8" y="-18.9" fill="#5b79fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="43.2" y="-18.9" fill="#5d7bfe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="48.6" y="-18.9" fill="#607dfe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-54.0" y="-10.1" fill="#4261ff" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-48.6" y="-10.1" fill="#4362ff" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-43.2" y="-10.1" fill="#4463fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-37.8" y="-10.1" fill="#4564fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-32.4" y="-10.1" fill="#4665fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-27.0" y="-10.1" fill="#4766fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-21.6" y="-10.1" fill="#4867fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-16.2" y="-10.1" fill="#4968fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-10.8" y="-10.1" fill="#4a69fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-5.4" y="-10.1" fill="#4c6afe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="0.0" y="-10.1" fill="#4d6bfe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="5.4" y="-10.1" fill="#4e6cfe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="10.8" y="-10.1" fill="#516ffe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="16.2" y="-10.1" fill="#5471fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="27.0" y="-10.1" fill="#5875fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="32.4" y="-10.1" fill="#5a78fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="37.8" y="-10.1" fill="#5c7afe" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="43.2" y="-10.1" fill="#5f7cfe" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="-54.0" y="-1.3" fill="#4262ff" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-27.0" y="-1.3" fill="#4866fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="-21.6" y="-1.3" fill="#4967fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="-16.2" y="-1.3" fill="#4a68fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-10.8" y="-1.3" fill="#4b69fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-5.4" y="-1.3" fill="#4c6afe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="0.0" y="-1.3" fill="#4d6bfe" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="10.8" y="-1.3" fill="#5270fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="16.2" y="-1.3" fill="#5472fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="21.6" y="-1.3" fill="#5774fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="27.0" y="-1.3" fill="#5977fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="32.4" y="-1.3" fill="#5b79fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-54.0" y="7.5" fill="#4362ff" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-48.6" y="7.5" fill="#4463fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-10.8" y="7.5" fill="#4c6afe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-5.4" y="7.5" fill="#4d6bfe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="0.0" y="7.5" fill="#4e6cfe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="5.4" y="7.5" fill="#516ffe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="10.8" y="7.5" fill="#5471fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="16.2" y="7.5" fill="#5573fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="21.6" y="7.5" fill="#5875fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="27.0" y="7.5" fill="#5a78fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="32.4" y="7.5" fill="#5c7afe" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="-54.0" y="16.3" fill="#4463ff" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="-48.6" y="16.3" fill="#4564fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-43.2" y="16.3" fill="#4665fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="-5.4" y="16.3" fill="#4d6bfe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="0.0" y="16.3" fill="#506efe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="5.4" y="16.3" fill="#5270fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="10.8" y="16.3" fill="#5472fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="16.2" y="16.3" fill="#5774fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="21.6" y="16.3" fill="#5977fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="27.0" y="16.3" fill="#5b79fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="-48.6" y="25.1" fill="#4564fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="-43.2" y="25.1" fill="#4665fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-37.8" y="25.1" fill="#4866fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="-16.2" y="25.1" fill="#4c6afe" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="-10.8" y="25.1" fill="#4d6bfe" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="0.0" y="25.1" fill="#516ffe" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="5.4" y="25.1" fill="#5371fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="10.8" y="25.1" fill="#5573fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="16.2" y="25.1" fill="#5875fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="21.6" y="25.1" fill="#5a78fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="-43.2" y="33.9" fill="#4765fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="-37.8" y="33.9" fill="#4866fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-32.4" y="33.9" fill="#4967fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-27.0" y="33.9" fill="#4a68fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-21.6" y="33.9" fill="#4b69fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-16.2" y="33.9" fill="#4c6afe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-10.8" y="33.9" fill="#4d6bfe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="-5.4" y="33.9" fill="#506efe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="0.0" y="33.9" fill="#5270fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="5.4" y="33.9" fill="#5573fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">▄</text>
+      <text x="10.8" y="33.9" fill="#5774fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="16.2" y="33.9" fill="#5977fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="21.6" y="33.9" fill="#5b79fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">█</text>
+      <text x="27.0" y="33.9" fill="#5d7bfe" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="-27.0" y="42.7" fill="#4a69fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="-21.6" y="42.7" fill="#4c6afe" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="-16.2" y="42.7" fill="#4d6bfe" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="-10.8" y="42.7" fill="#4e6cfe" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="-5.4" y="42.7" fill="#516ffe" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+      <text x="0.0" y="42.7" fill="#5371fe" textLength="5.8" lengthAdjust="spacingAndGlyphs">▀</text>
+    </g>
+  </g>
+
+  <!-- TUI ASCII Projectiles -->
+  <g class="fx bolt-1">
+    <text x="0" y="0" fill="#4285f4">==*</text>
+  </g>
+  <g class="fx bolt-2">
+    <text x="0" y="0" fill="#d97757">&lt;++</text>
+  </g>
+  <g class="fx bolt-3">
+    <text x="0" y="0" fill="#4d6bfe">~~~</text>
+  </g>
+  <g class="fx bolt-4">
+    <text x="0" y="0" fill="#7a9dff">&lt;&gt;_</text>
+  </g>
+
+  <!-- TUI Clash Impact Sparks -->
+  <g class="fx spark-1">
+    <text x="-18" y="-14" fill="#fbbc05">*</text>
+    <text x="18" y="-14" fill="#94a3b8">+</text>
+    <text x="-18" y="14" fill="#4285f4">░</text>
+    <text x="18" y="14" fill="#34a853">x</text>
+  </g>
+  <g class="fx spark-2">
+    <text x="-18" y="-14" fill="#4d6bfe">▒</text>
+    <text x="18" y="-14" fill="#7a9dff">&gt;</text>
+    <text x="-16" y="14" fill="#3941ff">!</text>
+    <text x="18" y="14" fill="#4d6bfe">+</text>
+  </g>
+  <g class="fx spark-3">
+    <text x="-18" y="-14" fill="#ea4335">*</text>
+    <text x="18" y="-14" fill="#4d6bfe">~</text>
+    <text x="-18" y="14" fill="#34a853">▓</text>
+    <text x="18" y="14" fill="#4285f4">x</text>
+  </g>
+  <g class="fx spark-4">
+    <text x="-18" y="-14" fill="#d97757">+</text>
+    <text x="18" y="-14" fill="#64748b">/</text>
+    <text x="-18" y="14" fill="#94a3b8">▓</text>
+    <text x="18" y="14" fill="#d97757">x</text>
+  </g>
+  <g class="fx spark-5">
+    <text x="-18" y="-14" fill="#ea4335">*</text>
+    <text x="18" y="-14" fill="#34a853">+</text>
+    <text x="-18" y="14" fill="#64748b">!</text>
+    <text x="18" y="14" fill="#4285f4">▒</text>
+  </g>
+</svg>
