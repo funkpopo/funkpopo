@@ -16,6 +16,10 @@ Kunming, Yunnan · [hireable](mailto:funkpopoisme@gmail.com)
 
 </div>
 
+<p align="center">
+  <img src="./ai-battle-tui.svg" alt="AI Icons TUI Battle" width="840" />
+</p>
+
 ---
 
 ### About
